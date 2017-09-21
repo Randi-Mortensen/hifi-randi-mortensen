@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Produkt</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Forside</a></li>
+            <li><a href="/produkt.html">Produkt</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+    <h1>Produkt</h1>
+    <div id="content"></div>
+    <script>
+        fetch('http://localhost:1337/produkter')
+            .then((response) => {
+                // grib svarets indhold (body) og send det som et json objekt til næste .then()
+                return response.json();
+            })
+            .then((data) => {
+                // nu er json objektet lagt ind i data variablen, udskriv data
+                console.log(data);
+                document.getElementById('content').innerHTML = data[0].navn + " " + data[0].pris;
+            })
+    </script>
+</body>
+
+</html>
