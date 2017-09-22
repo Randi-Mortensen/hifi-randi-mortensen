@@ -1,21 +1,5 @@
 # HiFi Dokumentation
 
-## Mappestruktur
-HiFi (MappeRoden)
-app.js
-package.json
-README.md
-
-HiFI\assets
-
-
-
-HiFi\config
-
-HiFi\node_modules
-
-HiFi\public
-
 ## Resurser
 
 ### GET /produkter
