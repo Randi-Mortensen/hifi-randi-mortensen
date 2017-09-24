@@ -1,7 +1,7 @@
 {
   "name": "hifi-randi-mortensen",
   "version": "1.0.0",
-  "description": "",
+  "description": "Resursen representerer alle produkter i kartoteket.\r Resursen er formateret på følgende måde:",
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",

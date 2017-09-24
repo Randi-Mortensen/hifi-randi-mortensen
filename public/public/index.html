@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Produkter</title>
+    <!-- Bootstrap CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="./assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                            </button>
+                <a class="navbar-brand" href="index.html">ZYBERDATA's HiFi Shop</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Forside <span class="sr-only">(current)</span></a></li>
+                    <li><a href="produkt.html">Produkter</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="col-md-12"></div>
+    <div class="col-md-6"><br/>
+        <div id="content">
+            <script>
+                fetch('http://localhost:1337/produkter')
+                    .then((response) => {
+                        // grib svarets indhold (body) og send det som et json objekt til næste .then()
+                        return response.json();
+                    })
+                    .then((data) => {
+                        // nu er json objektet lagt ind i data variablen, udskriv data
+                        console.log(data);
+                        document.getElementById('content').innerHTML = data[0].navn + " " + data[0].producent + " " + data[0].kategori + " " + data[0].billede + " " + data[0].varenr + " " + data[0].pris;
+                    })
+            </script>
+        </div>
+    </div>
+</body>
+<footer>
+    <p>
+        <B>&copy; Copyright  2017  ZYBERDATA's HiFi Shop v. Randi Mortensen</B>
+        <p>
+</footer>
+
+</html>

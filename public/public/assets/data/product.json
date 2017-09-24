@@ -1,0 +1,30 @@
+[
+    {
+        "varenr": 501,
+        "navn": "Evolution CD 2016",
+        "producent": "sony",
+        "kategori": "cd-afspiller",
+        "billede": "creek_evo_cd.jpg",
+        "pris": 569.50,
+        "beskrivelse": {
+            "tekst": "Valle, Myse ost er uovertruffen",
+            "producent": "Mild",
+            "pris": 569.50,
+            "billede": "creek_evo_cd.jpg"
+        }
+    },
+    {
+        "varenr": 502,
+        "navn": "Sony 2017",
+        "producent": "Sony",
+        "kategori": "cd-afspiller",
+        "billede": "sonycd.jpg",
+        "pris": 2695.50,
+        "beskrivelse": {
+            "tekst": "Fantastisk lyd til en lille pris",
+            "producent": "sony",
+            "pris": 2695.50,
+            "billede": "sonycd.jpg"
+        }
+    }
+]
