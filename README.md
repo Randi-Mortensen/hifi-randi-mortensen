@@ -265,3 +265,23 @@ produkt.html
 
 </html>
 -->
+
+## Indsæt nyt i database
+<h2>Indsæt Nyt Produkt i databasen</h2>
+
+    Navn: <input type="text" id="navn"><br> 
+    Producent: <input type="text" id="producent"><br> 
+    Kategori: <input type="text"  id="kategori"><br> 
+    Billede: <input type="text" id="billede"><br> 
+    VareNr: <input type="text" id="varenr"><br> 
+    Pris: <input type="text" id="pris"><br>
+    <button id="gem">Gem</button>
+    <br><br> 
+
+    eks.:   Pioneer PLX-500.K
+            Pioneer
+            pladespiller
+            plx-500-k.jpg
+            702
+            2600.00
+            

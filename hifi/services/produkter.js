@@ -35,7 +35,7 @@ module.exports = {
     }
 };
 
-// server.post('/cheeses', (req, res) => {
+// server.post('/hifi', (req, res) => {
 //     res.send(200, req.body);
 // });
 // };

@@ -15,6 +15,9 @@ text-align: center;
 .col-md-6 img{
   width: 30%;
 }
+.col-md-12{
+  text-align: center;
+}
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 * {

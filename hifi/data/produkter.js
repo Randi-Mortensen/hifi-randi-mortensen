@@ -41,5 +41,27 @@ module.exports = [{
     "beskrivelse": {
         "tekst": "Rigtig god lyd til prisen...",
     }
+},
+{
+    "navn": "sony-cd",
+    "producent": "sony",
+    "kategori": "cd-afspiller",
+    "billede": "sonycd.jpg",
+    "varenr": 502,
+    "pris": 2695.50,
+    "beskrivelse": {
+        "tekst": "Rigtig god lyd til prisen...",
+    }
+},
+{
+    "navn": "sonyDVD",
+    "producent": "sony",
+    "kategori": "dvd-afspiller",
+    "billede": "sonydvd.jpg",
+    "varenr": 602,
+    "pris": 2795.50,
+    "beskrivelse": {
+        "tekst": "Rigtig god lyd til prisen...",
+    }
 }
 ];

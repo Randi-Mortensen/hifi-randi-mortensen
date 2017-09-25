@@ -54,7 +54,7 @@
         <!-- /.container-fluid -->
     </nav>
     <h1>Produkter</h1>
-    <h2>Vælg og udskriv kategori fra databasen</h2>
+    <h2>Vælg kategori her</h2>
 
     <select id="selecttype">
             <option value="0">Alle...</option>
@@ -62,33 +62,34 @@
             <option value="2">DVD-afspiller</option>
             <option value="3">Pladespiller</option>
             <option value="4">Højtaler</option>
-        </select><br><br>
-    <div id="content">
-        <script>
-            fetch('http://localhost:1337/produkter')
-                .then((response) => {
-                    // grib svarets indhold (body) og send det som et json objekt til næste .then()
-                    return response.json();
-                })
-                .then((data) => {
-                    // nu er json objektet lagt ind i data variablen, udskriv data
-                    console.log(data);
-                    document.getElementById('content').innerHTML = data[0].navn + " " + data[0].producent + " " + data[0].kategori + " " + data[0].billede + " " + data[0].varenr + " " + data[0].pris;
-                })
-        </script>
-    </div>
-
-
-
-
-    <h2>Indsæt Nyt Produkt i databasen</h2>
-
-    Navn: <input type="text" id="navn"><br> Producent: <input type="text" id="producent"><br> Kategori: <input type="text"
-        id="kategori"><br> Billede: <input type="text" id="billede"><br> VareNr: <input type="text" id="varenr"><br> Pris:
-    <input type="text" id="pris"><br>
-    <button id="gem">Gem</button>
+    </select><br><br>
     <br><br>
 
+    <div id="content"></div>
+
+    <script>
+        fetch('http://localhost:1337/produkter')
+            .then((response) => {
+                // grib svarets indhold (body) og send det som et json objekt til næste .then()
+                return response.json();
+            })
+            .then((data) => {
+                // nu er json objektet lagt ind i data variablen, udskriv data
+                console.log(data);
+                document.getElementById('content').innerHTML = data[0].navn + " " + data[0].pris;
+            })
+    </script>
+    <br><br>
+    <div class="col-md-12">
+        <h2>Indsæt Nyt Produkt i databasen</h2>
+        <form>
+            Navn: <input type="text" id="navn"><br> Producent: <input type="text" id="producent"><br> Kategori: <input type="text"
+                id="kategori"><br> Billede: <input type="text" id="billede"><br> VareNr: <input type="text" id="varenr"><br>            Pris:
+            <input type="text" id="pris"><br>
+            <button id="gem">Gem</button>
+            <br><br>
+        </form>
+    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -99,7 +100,13 @@
     <script src="./assets/js/kolonner.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--<script src="dist/js/ie10-viewport-bug-workaround.js"></script> -->
-    <script src="./assets/js/motor.js"></script>
 </body>
+<footer>
+    <div class="col-md-12">
+        <p>
+            <B>&copy; Copyright  2017  ZYBERDATA's HiFi Shop v. Randi Mortensen</B>
+        </p>
+    </div>
+</footer>
 
 </html>
