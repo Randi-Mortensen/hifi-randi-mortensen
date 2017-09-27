@@ -20,6 +20,17 @@ module.exports = function (app) {
             res.send(data);
         })
     })
+    app.get('/home', funktion(req, rews) {
+        var app = `SELECT
+        produkter.billede   AS produkt_billede
+        produkter.navn      AS produkt_navn,
+        produkter.pris      AS produkt_pris
+        
+        FROM produkter`
+        db.query(app, function (err, data) {
+            res.send(data);
+        })
+    })
 }
 
 // app.post('/create', (req, res) => {
