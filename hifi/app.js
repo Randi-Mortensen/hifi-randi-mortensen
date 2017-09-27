@@ -5,8 +5,8 @@ const server = restify.createServer({
     'version': '1.0.0'
 });
 
-server.use(restify.plugins.bodyParser());
-const cors = corsmiddleware({ origins: ['*'] });
+server.use(restify.plugins.bodyParser()); //bruges ved kontaktformularer.
+const cors = corsmiddleware({ origins: ['*'] }); //orgins styrer hvilke domæner der har adgang.
 server.pre(cors.preflight);
 server.use(cors.actual);
 

@@ -9,11 +9,24 @@ h1{
 text-align: center;
 }
 
+#content{
+  width: 80%;
+  padding: 2%;
+}
+
 .col-md-6{
+  padding: 1%;
   text-align: center;
 }
+
+.col-md-6 p{
+  text-align: center;
+}
+
 .col-md-6 img{
-  width: 30%;
+  width: 25%;
+  float: left;
+  padding: 5px;
 }
 .col-md-12{
   text-align: center;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Produkter</title>
+    <title>HiFi Shoppen</title>
     <!-- Bootstrap CSS -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -53,9 +53,10 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <h1>Hifi Fantastisk lyd for små penge</h1>
-    <div id="content"></div>
 
+    <h1>Hifi Fantastisk lyd for små penge</h1>
+
+    <div id="content"></div>
     <script>
         fetch('http://localhost:1337/produkter')
             .then((response) => {
@@ -65,12 +66,12 @@
             .then((data) => {
                 // nu er json objektet lagt ind i data variablen, udskriv data
                 console.log(data);
-                document.getElementById('content').innerHTML = data[3].navn + " " + data[3].pris;
+                document.getElementById('content').innerHTML = data[0].produkt_navn + " " + data[0].produkt_billede + " " + data[0].produkter_pris;
             })
     </script>
-    <!-- Bootstrap core JavaScript
+    <!-- Bootstrap / JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Placeres nederst i body tag så siderne loader hurtigere -->
     <script src='./assets/js/produkt.js'></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

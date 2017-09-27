@@ -54,32 +54,34 @@
         <!-- /.container-fluid -->
     </nav>
     <h1>Produkter</h1>
-    <h2>Vælg kategori her</h2>
+    <div class="col-md-12">
+        <h2>Vælg kategori her</h2>
 
-    <select id="selecttype">
+        <select id="selecttype">
             <option value="0">Alle...</option>
             <option value="1">CD-afspiller</option>
             <option value="2">DVD-afspiller</option>
             <option value="3">Pladespiller</option>
             <option value="4">Højtaler</option>
     </select><br><br>
-    <br><br>
+        <br><br>
 
-    <div id="content"></div>
+        <div id="content"></div>
 
-    <script>
-        fetch('http://localhost:1337/produkter')
-            .then((response) => {
-                // grib svarets indhold (body) og send det som et json objekt til næste .then()
-                return response.json();
-            })
-            .then((data) => {
-                // nu er json objektet lagt ind i data variablen, udskriv data
-                console.log(data);
-                document.getElementById('content').innerHTML = data[0].navn + " " + data[0].pris;
-            })
-    </script>
-    <br><br>
+        <script>
+            fetch('http://localhost:1337/produkter')
+                .then((response) => {
+                    // grib svarets indhold (body) og send det som et json objekt til næste .then()
+                    return response.json();
+                })
+                .then((data) => {
+                    // nu er json objektet lagt ind i data variablen, udskriv data
+                    console.log(data);
+                    document.getElementById('content').innerHTML = data[0].navn + " " + data[0].pris;
+                })
+        </script>
+        <br><br>
+    </div>
     <div class="col-md-12">
         <h2>Indsæt Nyt Produkt i databasen</h2>
         <form>

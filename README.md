@@ -1,27 +1,30 @@
 # hifi-randi-mortensen
 Webintegration Hi-Fi project
 
-* Oprettet hifi-randi-mortensen mappe
-* Oprettet hifi-randi-mortensen reposotori
-## Mappe / File struktur hifi-randi-mortensen
-* hifi
-* public
+# app.js
 
-.gitignore  // noget github ??? </br>
- README.md  //denne fil
+## Opsætning af server
 
- # Mappe / File struktur hifi
-app.js
-<!-- 
+start med npm init
+npm init // installere package.json
+
+Installerer følgende modules:
+* restify
+* restify-cors-middleware
+>npm install restify, restify-cors-middleware, mysql2 --save
+
+Restify gør det muligt at oprette en API-server (get, post, put og delete).
+
+```javascript
 const restify = require('restify');
 const corsmiddleware = require('restify-cors-middleware');
 const server = restify.createServer({
-    'name': 'hifi',
-    'version': '1.0.0'
+    'name': 'hifi', //key : value
+    'version': '1.0.0'//key : value
 });
 
-server.use(restify.plugins.bodyParser());
-const cors = corsmiddleware({ origins: ['*'] });
+server.use(restify.plugins.bodyParser()); //bruges ved kontaktformularer.
+const cors = corsmiddleware({ origins: ['*'] }); //orgins styrer hvilke domæner der har adgang.
 server.pre(cors.preflight);
 server.use(cors.actual);
 
@@ -30,9 +33,123 @@ require('./routes/index')(server);
 server.listen(1337, function () {
     console.log('%s listening at %s', server.name, server.url);
 });
--->
-package.json
-<!-- 
+```
+# Routes
+
+# Routes/Index App
+index.js
+```
+module.exports = (app) => {
+    require('./produkter')(app);
+    //require('./kontakt')(app);
+}
+
+
+```
+## INNER JOIN UDE I SQL PHPMYADMIN
+------------------------------- 
+SELECT `produkter`.`navn` as 'produktnavn', `producent`.`navn` as 'producent', `kategori`.`navn` as 'kategori'
+FROM `produkter` 
+INNER join `producent` on `produkter`.`producent`=`producent`.`id`
+INNER join `kategori` on `produkter`.`kategori`=`kategori`.`id`
+
+## INNER JOIN INDE I ROUTES PRODUKT.JS
+```javascript
+const db = require('../config/sql').connect();
+
+module.exports = function (app) {
+    app.get('/produkter', function (req, res) {
+        var app = `SELECT produkter.navn as 'produktnavn', producent.navn as 'producent', kategori.navn as 'kategori'
+        FROM produkter 
+        INNER join producent on produkter.producent=producent.id
+        INNER join kategori on produkter.kategori=kategori.id`
+
+        db.query(app, function (err, data) {
+            res.send(data);
+        })
+    })
+}
+
+ app.post('/create', (req, res) => {
+
+     let values = [];
+     values.push(req.body.navn);
+     values.push(req.body.producent);
+     values.push(req.body.kategori);
+     values.push(req.body.billede);
+     values.push(req.body.varenr);
+     values.push(req.body.pris);
+
+
+    db.execute('insert into produkter set navn = ?, producent = ?, kategori = ?, billede = ?, varenr = ?, pris = ?', values, (err, rows) => {
+         if (err) {
+             console.log(err);
+             res.json(500, {
+                 "message": "Internal Server Error",
+                 "error": err
+             })
+         }
+         else {
+             res.json(200, {
+                 "message": "Data indsat"
+             })
+         }
+     })
+});
+```
+## /produkt
+Vælger alle produkter
+```javascript
+app.get('/produkt', function (req, res) {
+        db.query('select * from hifi', function (err, data) {
+            res.send(data);
+        })
+    })
+}
+
+
+
+```
+## /produkt/kategori/:id
+Henter alle produkter i kategori-id
+```javascript
+app.get('/produkter/kategori/:id', function (req, res) {
+
+        var app = `SELECT 
+        produkter.id      AS produkt_id,
+        produkter.navn    AS produkt_navn, 
+        produkter.billede AS produkt_billede, 
+        produkter.varenr  AS produkt_varenr, 
+        produkter.pris    AS produkt_pris,
+
+        producent.navn    AS producent_navn, 
+        kategori.navn     AS kategori_navn 
+        
+        FROM produkter 
+        INNER join producent ON produkter.producent = producent.id
+        INNER join kategori ON produkter.kategori = kategori.id`
+
+        db.query(app, function (err, data) {
+            res.send(data);
+        })
+    })
+}
+
+
+```
+## /produkt
+Vælger et bestemt produkt ud fra et produkt-id under producent_navn
+```javascript
+app.get('/produkt/:id', function (req, res) {
+        db.query('select * from hifi where producent_navn = ?', [req.params.id], function (err, data) {
+            res.send(data);
+        })
+    })
+```
+
+ 
+## package.json
+```json 
 {
   "name": "hifi-randi-mortensen",
   "version": "1.0.0",
@@ -51,10 +168,11 @@ package.json
     "restify-cors-middleware": "^1.0.1"
   }
 }
--->
-    * config
-        sql.js
-<!-- 
+```
+## config
+   
+    sql.js
+```javascript 
 const mysql = require('mysql2');
 
 module.exports = {
@@ -67,10 +185,10 @@ module.exports = {
         });
     }
 };
--->
-    * data
+```
+## data
         produkter.js
-<!-- 
+```javascript 
 module.exports = [{
     "navn": "evolution 50cd",
     "producent": "creek",
@@ -116,7 +234,7 @@ module.exports = [{
     }
 }
 ];
--->
+```
     * node_modules
 <!-- -->
     * routes
@@ -127,21 +245,11 @@ module.exports = (server) => {
     //require('./kontakt')(server);
 }
 -->
-        produkter.js
-<!-- 
-const db = require('../config/sql').connect();
 
-module.exports = function (app) {
-    app.get('/produkter', function (req, res) {
-        db.query('select * from produkter', function (err, data) {
-            res.send(data);
-        })
-    })
-}
--->
+
     * services
         produkter.js
-<!-- 
+ 
 const produkter = require('../data/produkter');
 /**
  * @module produkter
