@@ -1,4 +1,4 @@
 module.exports = (app) => {
-    require('./produkter')(app);
+    require('./produkt')(app);
     //require('./kontakt')(app);
 }
