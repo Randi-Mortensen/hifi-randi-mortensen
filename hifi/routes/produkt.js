@@ -38,7 +38,7 @@ module.exports = function (app) {
                     type = element.type; // husk type
                     prod = []; // tøm listen med produkter
                 }
-                prod.push(JSON.parse(`{"navn":"${element.navn}", "pris":"${element.pris}", "image":"${element.image}"}`)); // indsæt produkterer i produktererlisten
+                prod.push(JSON.parse(`{"navn":"${element.produkt_navn}", "producent":"${element.producent_navn}", "type":"${element.type_navn}", "billede":"${element.produkt_billede}", "varenr":"${element.produkt_varenr}", "pris":"${element.produkt_pris}"}`)); // indsæt produkter i produktlisten
 
                 // hvis det er sidste produkt, så sæt det på listen (bør laves som en function, da koden er en kopi af ovenstående)
                 if (count <= (index + 1)) {
@@ -57,12 +57,12 @@ module.exports = function (app) {
     app.post('/create', (req, res) => {
 
         let values = [];
-        values.push(req.body.produkt_navn);
-        values.push(req.body.producent_navn);
-        values.push(req.body.type_navn);
-        values.push(req.body.produkt_billede);
-        values.push(req.body.produkt_varenr);
-        values.push(req.body.produkt_pris);
+        values.push(req.body.navn);
+        values.push(req.body.producent);
+        values.push(req.body.type);
+        values.push(req.body.billede);
+        values.push(req.body.varenr);
+        values.push(req.body.pris);
 
 
         db.execute('insert into hifi set navn = ?, producent = ?, type = ?, billede = ?, varenr = ?, pris = ?', values, (err, rows) => {
