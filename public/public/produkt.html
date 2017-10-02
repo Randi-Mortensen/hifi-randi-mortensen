@@ -19,42 +19,24 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                    aria-expanded="false">
-                                              <span class="sr-only">Toggle navigation</span>
-                                              <span class="icon-bar"></span>
-                                              <span class="icon-bar"></span>
-                                              <span class="icon-bar"></span>
-                                            </button>
-                <a class="navbar-brand" href="index.html">HiFi Klubben</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.html">Forside </a></li>
-                    <li class="active"><a href="produkt.html">Produkter <span class="sr-only">(current)</span></a></li>
-                    <li><a href="kontakt.html">kontakt</a></li>
-                </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-                </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
+    <nav>
+        <ul id="menu-links">
+            <!-- Menuen genereres dynamisk vha. javascript i "js/menu.js" -->
+        </ul>
     </nav>
+    <section>
+        <article>
+
+            <p id="output">
+                <em>(Vælg en kategori. ID'et bliver udskrevet her.)</em>
+            </p>
+
+            <p><a href="produkt.html">Klik for at fjerne alle URL parametre</a></p>
+
+            <hr>
+        </article>
+    </section>
     <h1>Produkt</h1>
-    <div id="content"></div>
     <script>
         fetch('http://localhost:1337/produkt')
             .then((response) => {
@@ -80,8 +62,17 @@
         <option value="2">Speaker</option>
     </select>
 
+    <!-- Indlæser hjælpefunktioner -->
+    <script src="./assets/js/funktioner.js"></script>
 
-    <script src='./assets/js/produkt.js'></script>
+    <!-- Indlæser filen, der indeholder statiske kategorier (kun til at teste eksemplet) -->
+    <script src="assets/data/data_kategorier.js"></script>
+
+    <!-- Indlæser filen, der genererer menuen dynamisk -->
+    <script src="./assets/js/menu.js"></script>
+
+    <!-- Indlæser filen, der skal manipulere indholdet af siden -->
+    <script src="./assets/js/produkt.js"></script>
 </body>
 <footer>
     <p>© HiFi Klubben v. Randi Mortensen 2017</p>

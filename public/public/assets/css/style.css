@@ -4,15 +4,26 @@
   text-decoration: none;
 }
 body {
-margin: 0 auto;
-width: 100%;
+	background-color: #FFFFFF;
+	color: #000;
+	font-family: Verdana;
+	font-size: 13px;
 }
 
-.navbar-left {
-    float: right!important;
-}
-h1{
-text-align: center;
+h1     {  color: #000000;  }
+h2     {  color: #000000;  }
+  
+a                         {  color: #0032F8;  text-decoration: none; }
+a:hover, a.active:hover   {  color: #0099FF;  }
+a.active                  {  color: #FF7300;  }
+  
+strong {  color: #000000;  }
+em     {  color: #000000;  }
+
+hr {
+	margin-top: 40px;
+	border: 0px;
+	border-top: 1px solid #9B9B9B;
 }
 
 footer{

@@ -20,12 +20,17 @@ module.exports = function (app) {
         ORDER BY type.id`
 
         db.query(sql, function (err, data) {
+            'use strict';
             var json = [];
             var prod = [];
             var type = "";
             var firsttime = true;
-            var count = data.lenght;
+            var count = data.length;
+
+            console.log(count);//Viser om der er fat i alle variabler
+
             data.forEach(function (element, index) {
+                console.log("Har fat i et produkt i forEach");
                 var newType = (element.type != type); // sæt newType lig med true eller false 
                 if (newType) { // hvis det er en ny type
                     if (!firsttime) { // og det ikke er første gennemløb
@@ -49,6 +54,7 @@ module.exports = function (app) {
                 }
             }, this);
 
+            console.log("test");
             res.send(json);
         })
     })
