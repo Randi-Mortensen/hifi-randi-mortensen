@@ -57,12 +57,12 @@ module.exports = function (app) {
     app.post('/create', (req, res) => {
 
         let values = [];
-        values.push(req.body.navn);
-        values.push(req.body.producent);
-        values.push(req.body.type);
-        values.push(req.body.billede);
-        values.push(req.body.varenr);
-        values.push(req.body.pris);
+        values.push(req.body.produkt_navn);
+        values.push(req.body.producent_navn);
+        values.push(req.body.type_navn);
+        values.push(req.body.produkt_billede);
+        values.push(req.body.produkt_varenr);
+        values.push(req.body.produkt_pris);
 
 
         db.execute('insert into hifi set navn = ?, producent = ?, type = ?, billede = ?, varenr = ?, pris = ?', values, (err, rows) => {
