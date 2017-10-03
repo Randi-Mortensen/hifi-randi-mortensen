@@ -16,9 +16,44 @@
         crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="./assets/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                                              <span class="sr-only">Toggle navigation</span>
+                                              <span class="icon-bar"></span>
+                                              <span class="icon-bar"></span>
+                                              <span class="icon-bar"></span>
+                                            </button>
+                <a class="navbar-brand" href="index.html">HiFi Klubben</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Forside </a></li>
+                    <li class="active"><a href="produkt.html">Produkter <span class="sr-only">(current)</span></a></li>
+                    <li><a href="kontakt.html">kontakt</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
     <nav>
         <ul id="menu-links">
             <!-- Menuen genereres dynamisk vha. javascript i "js/menu.js" -->
@@ -32,10 +67,10 @@
             </p>
 
             <p><a href="produkt.html">Klik for at fjerne alle URL parametre</a></p>
-
             <hr>
         </article>
     </section>
+
     <h1>Produkt</h1>
     <script>
         fetch('http://localhost:1337/produkt')
@@ -46,21 +81,13 @@
             .then((data) => {
                 // nu er json objektet lagt ind i data variablen, udskriv data
                 console.log(data);
-                document.getElementById('content').innerHTML = data[0].navn + " " + data[0].pris;
+                document.getElementById('content').innerHTML = data[0].produkt_navn + " " + data[0].producent_navn + " " + data[0].type_navn + " " + data[0].produkt_billede + " " + data[0].produkt_varenr + " " + data[0].produkt_pris;
             })
     </script>
     Navn: <input type="text" id="produkt_navn"><br> Producent: <input type="text" id="producent_navn"><br> Type: <input type="text"
         id="type_navn"><br> Billede: <input type="text" id="produkt_billede"><br> Vare Nr.: <input type="text" id="produkt_varenr"><br>    Pris: <input type="text" id="produkt_pris"><br>
     <button id="gem">Gem</button>
     <br><br>
-    <div id="content"></div>
-    <select id="selecttype">
-        <option value="0">Alle...</option>
-        <option value="1">CD Player</option>
-        <option value="2">DVD Player</option>
-        <option value="1">Record Player</option>
-        <option value="2">Speaker</option>
-    </select>
 
     <!-- Indlæser hjælpefunktioner -->
     <script src="./assets/js/funktioner.js"></script>
