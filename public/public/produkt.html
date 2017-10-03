@@ -89,21 +89,7 @@
             <hr>
         </article>
     </section>
-    <script>
-        fetch('http://localhost:1337/produkt')
-            .then((response) => {
-                // grib svarets indhold (body) og send det som et json objekt til næste .then()
-                return response.json();
-            })
-            .then((data) => {
-                // nu er json objektet lagt ind i data variablen, udskriv data
-                console.log(data);
-                var content = document.getElementById('content');
-                console.log(content);
-                console.log("udskriv content");
-                content.innerHTML = data[0].produkt_navn + " " + data[0].producent_navn + " " + data[0].type_navn + " " + data[0].produkt_billede + " " + data[0].produkt_varenr + " " + data[0].produkt_pris;
-            })
-    </script>
+
     <!-- Indlæser hjælpefunktioner -->
     <script src="./assets/js/funktioner.js"></script>
 
