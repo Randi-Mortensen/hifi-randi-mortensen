@@ -14,7 +14,6 @@ module.exports = function (app) {
         produkt.billede AS produkt_billede, 
         produkt.varenr  AS produkt_varenr, 
         produkt.pris    AS produkt_pris,
-        produkt.beskrivelse AS produkt_beskrivelse,
 
         producent.navn    AS producent_navn, 
         type.navn     AS type_navn 

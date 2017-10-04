@@ -74,15 +74,14 @@ fetch('http://localhost:1337/produkt')
         var type = '';
         document.getElementById('content').innerHTML = "";
         data.forEach(function (item) {
-            document.getElementById('content').innerHTML += `<h2>${item.type_navn}</h2>`;
+            document.getElementById('content').innerHTML += `${item.type}`;
             item.prod.forEach(function (prod) {
                 document.getElementById('content').innerHTML += `
                         <div>
                         <img src="assets/media/${prod.billede}" width="100px" /><br>
                             <b>Produkt Navn: ${prod.navn}</b><br>
                             <b>Producent: ${prod.producent}</b><br>
-                            <b>pris: kr. ${prod.pris}<b><br>
-                            Beskrivelse: ${prod.beskrivelse} 
+                            <b>pris: kr. ${prod.pris}<b><br> 
                         </div>  
                         `;
             }, this);
@@ -95,8 +94,6 @@ fetch('http://localhost:1337/produkt')
 
         //data[0] // både "type" og "prod" (array)
 
-        var forste_kategori = data[0];
-        var forste_produkt = data[0].prod[0];
 
         // console.log("Første kategori:");
         // console.log(forste_kategori);

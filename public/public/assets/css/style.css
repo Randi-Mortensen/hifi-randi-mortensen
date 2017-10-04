@@ -11,10 +11,18 @@ body {
 }
 
 h1     {  color: #000000;  }
-h2     {  color: #000000;  }
+h2     {  color: #000000; text-align: center;  }
+
+#menu-links{
+	text-align: center;
+}
+
+#output{
+	text-align: center;
+}
   
 a                         {  color: #0032F8;  text-decoration: none; }
-a:hover, a.active:hover   {  color: #0099FF;  }
+a:hover, a.active:hover   {  color: #0099FF; }
 a.active                  {  color: #FF7300;  }
   
 strong {  color: #000000;  }
