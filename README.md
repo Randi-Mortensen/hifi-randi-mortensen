@@ -1,3 +1,11 @@
+# Aflevering Fradag d. 5 Oktober
+* Exporter database 
+Husk og stå på HiFi når du trykker exporter
+* Upload til GitHub
+Upload alt til GitHub og pak alle HiFi filer og mapper sammen med den exporteret database
+
+---------------------------------------------------------------------------------------------
+
 # hifi-randi-mortensen
 Webintegration Hi-Fi project
 
@@ -452,132 +460,92 @@ module.exports = {
 };
 ```
 ## data
-        produkter.js
+        data_kategorier.js
 ```javascript 
-module.exports = [{
-    "navn": "evolution 50cd",
-    "producent": "creek",
-    "kategori": "cd-afspiller",
-    "billede": "creek_evo_cd.jpg",
-    "varenr": 501,
-    "pris": 569.00,
-    "beskrivelse": {
-        "tekst": "Rigtig god lyd til prisen...",
-    }
-},
-{
-    "navn": "parasound_d200",
-    "producent": "parasound",
-    "kategori": "dvd-afspiller",
-    "billede": "parasound_d200.jpg",
-    "varenr": 601,
-    "pris": 1895.99,
-    "beskrivelse": {
-        "tekst": "Rigtig god lyd til prisen...",
-    }
-},
-{
-    "navn": "pro_ject_debut_3_bl",
-    "producent": "pro_ject",
-    "kategori": "pladespiller",
-    "billede": "pro_ject_debut_3_bl.jpg",
-    "varenr": 701,
-    "pris": 2595.00,
-    "beskrivelse": {
-        "tekst": "Rigtig god lyd til prisen...",
-    }
-},
-{
-    "navn": "harbeth_p3es2",
-    "producent": "harbeth",
-    "kategori": "højtaler",
-    "billede": "harbeth_p3es2.jpg",
-    "varenr": 801,
-    "pris": 1385.95,
-    "beskrivelse": {
-        "tekst": "Rigtig god lyd til prisen...",
-    }
+// Denne funktion returnerer et JSON array indholdende kategorier.
+// Den bruges udelukkende til at holde eksemplet simpelt
+// og uafhængigt af API'er, databaser, osv.
+
+function statisk_kategorier_data() {
+    return [
+        { "type_id": 1, "type_navn": "CD Afspillere" },
+        { "type_id": 2, "type_navn": "DVD Afspillere" },
+        { "type_id": 3, "type_navn": "Record Playere" },
+        { "type_id": 4, "type_navn": "Speakere" }
+    ];
 }
-];
+
 ```
     * node_modules
 <!-- -->
     * routes
         index.js
-<!-- 
+```javascript
 module.exports = (server) => {
     require('./produkter')(server);
     //require('./kontakt')(server);
 }
--->
-
-
-    * services
-        produkter.js
- 
-const produkter = require('../data/produkter');
-/**
- * @module produkter
- */
-module.exports = {
-    /**
-     * getAll
-     * Retunerer et json object med alle produkter fra kartoteket
-     * @returns {Object}
-     */
-    'getAll': () => produkter,
-
-    /**
-     * getOne
-     * Retunerer et json object med et enkelt produkt fra kartoteket
-     * @param {string} varenr - varenummeret på et produkt
-     * @returns {Object}
-     */
-    'getOne': (varenr) => {
-        let currentKategori = null;
-        produkter.forEach((kategori) => {
-            if (kategori.varenr == varenr) {
-                currentKategori = JSON.stringify(kategori);
-            }
-        });
-
-        if (currentKategori !== null) {
-            return currentKategori;
-        } else {
-            return {
-                "code": "ResourceNotFound",
-                "message": "${varenr} does not exist"
-            };
-        }
-    }
-};
-
-// server.post('/produkter', (req, res) => {
-//     res.send(200, req.body);
-// });
-// };
-// }
-// };
--->
+```
 
  # Mappe / File struktur public
     * assets </br>
         * css   //stylesheet mappe</br> 
             bootstrap css filer.</br>
             style.css 
-<!-- 
+```css  
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
 body {
-    margin:0;
-    padding:0;
+	background-color: #FFFFFF;
+	color: #000;
+	font-family: Verdana;
+	font-size: 13px;
 }
-.navbar-left {
-    float: right!important;
+
+h1     {  color: #000000;  }
+h2     {  color: #000000; text-align: center;  }
+
+#menu-links{
+	text-align: center;
 }
-footer {
-    text-align: center;
-    height: 50px;
-    width: 100%;    
-} 
+
+#output{
+	text-align: center;
+}
+  
+a                         {  color: #0032F8;  text-decoration: none; }
+a:hover, a.active:hover   {  color: #0099FF; }
+a.active                  {  color: #FF7300;  }
+  
+strong {  color: #000000;  }
+em     {  color: #000000;  }
+
+hr {
+	margin-top: 40px;
+	border: 0px;
+	border-top: 1px solid #9B9B9B;
+}
+
+#content{
+	text-align: center;
+}
+
+article{
+	text-align: center;
+}
+
+.article-1{
+	float: right;
+}
+
+
+footer{
+  text-align: center;
+}
+```
 -->
     * js //javascript Mappe
         * bootstrap.js
@@ -586,22 +554,22 @@ footer {
 <!--
     
 -->
-
     * media //Billeder, Videoer & lyd filer     
 <!-- 
 Alle billeder til projectet ligger her
 -->
 * node_modules </br>
-app.js </br>
-<!-- 
+app.js // public</br>
+```javascript 
 const browserSync = require('browser-sync').create();
 browserSync.watch('./public/**/*').on('change', browserSync.reload);
 browserSync.init({
-    'server': './public'
+    'server': './public',
+    port: 3000
 });
--->
+```
 produkt.html
-<!-- 
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -610,36 +578,105 @@ produkt.html
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Produkt</title>
+    <!-- Bootstrap CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="./assets/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                                              <span class="sr-only">Toggle navigation</span>
+                                              <span class="icon-bar"></span>
+                                              <span class="icon-bar"></span>
+                                              <span class="icon-bar"></span>
+                                            </button>
+                <a class="navbar-brand" href="index.html">HiFi Klubben</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Forside </a></li>
+                    <li class="active"><a href="produkt.html">Produkter <span class="sr-only">(current)</span></a></li>
+                    <li><a href="kontakt.html">kontakt</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Go!</button>
+                </form>
+                </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <h2>Vælg Produkter</h2>
     <nav>
-        <ul>
-            <li><a href="/">Forside</a></li>
-            <li><a href="/produkt.html">Produkt</a></li>
-            <li><a href="/kontakt.html">Kontakt</a></li>
+        <ul id="menu-links">
+            <!-- Menuen genereres dynamisk vha. javascript i "js/menu.js" -->
         </ul>
     </nav>
-    <h1>Produkt</h1>
-    <div id="content"></div>
-    <script>
-        fetch('http://localhost:1337/produkter')
-            .then((response) => {
-                // grib svarets indhold (body) og send det som et json objekt til næste .then()
-                return response.json();
-            })
-            .then((data) => {
-                // nu er json objektet lagt ind i data variablen, udskriv data
-                console.log(data);
-                document.getElementById('content').innerHTML = data[0].navn + " " + data[0].pris;
-            })
-    </script>
+    <section>
+        <article>
+            <p id="output">
+                <em>(Vælg en kategori. ID'et bliver udskrevet her.)</em>
+            </p>
+            <p><a href="produkt.html">Fjern alle URL parametre</a></p>
+            <hr>
+        </article>
+        <article>
+            <h2>Valgte Produkter</h2>
+            <div id="content"></div>
+            <hr>
+        </article>
+        <article>
+            <h2>Indsæt Nyt Produkt</h2>
+            Navn: <input type="text" id="produkt_navn"><br> Producent: <input type="text" id="producent_navn"><br> Type:
+            <input type="text" id="type_navn"><br> Billede: <input type="text" id="produkt_billede"><br> Vare Nr.:
+            <input type="text" id="produkt_varenr"><br> Pris: <input type="text" id="produkt_pris"><br>
+            <button id="gem">Gem</button>
+            <br><br>
+            <hr>
+        </article>
+    </section>
+    <!-- Indlæser hjælpefunktioner -->
+    <script src="./assets/js/funktioner.js"></script>
+
+    <!-- Indlæser filen, der indeholder statiske kategorier (kun til at teste eksemplet) -->
+    <script src="assets/data/data_kategorier.js"></script>
+
+    <!-- Indlæser filen, der genererer menuen dynamisk -->
+    <script src="./assets/js/menu.js"></script>
+
+    <!-- Indlæser filen, der skal manipulere indholdet af siden -->
+    <script src="./assets/js/produkt.js"></script>
 </body>
+<footer>
+    <p>© HiFi Klubben v. Randi Mortensen 2017</p>
+</footer>
 
 </html>
--->
+```
 
 ## Indsæt nyt i database
+
+```html
 <h2>Indsæt Nyt Produkt i databasen</h2>
 
     Navn: <input type="text" id="navn"><br> 
@@ -650,11 +687,10 @@ produkt.html
     Pris: <input type="text" id="pris"><br>
     <button id="gem">Gem</button>
     <br><br> 
-
+```
     eks.:   Pioneer PLX-500.K
             Pioneer
             pladespiller
             plx-500-k.jpg
             702
             2600.00
-            

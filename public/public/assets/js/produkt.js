@@ -78,11 +78,11 @@ function udskrivProdukter() {
             var type = '';
             document.getElementById('content').innerHTML = "";
             data.forEach(function (item) {
-                document.getElementById('content').innerHTML += `${item.type}`;
+                document.getElementById('content').innerHTML += `<h2>${item.type}</h2>`;
                 item.prod.forEach(function (prod) {
                     document.getElementById('content').innerHTML += `
-                        <div>
-                        <img src="assets/media/${prod.billede}" width="100px" /><br>
+                        <div><br><br><br><hr>
+                        <img src="assets/media/${prod.billede}" width="150px" /><br><br>
                             <b>Produkt Navn: ${prod.navn}</b><br>
                             <b>Producent: ${prod.producent}</b><br>
                             <b>pris: kr. ${prod.pris}<b><br> 

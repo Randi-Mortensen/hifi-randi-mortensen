@@ -35,7 +35,7 @@ module.exports = function (app) {
 
             data.forEach(function (element, index) {
                 console.log("Har fat i et produkt i forEach");
-                var newType = (element.type != type); // sæt newType lig med true eller false 
+                var newType = (element.type_navn != type); // sæt newType lig med true eller false //Hvis der står type_navn oppe ved select skal det også stå her
                 if (newType) { // hvis det er en ny type
                     if (!firsttime) { // og det ikke er første gennemløb
                         var stringProd = JSON.stringify(prod); // lav json-array om til string
@@ -85,7 +85,7 @@ module.exports = function (app) {
 
         ORDER BY type.id`
 
-        db.query(sql, [req.params.id], function (err, data) {  // gør_noget();  er lig med en function på grund af paranteserne
+        db.query(sql, [req.params.id], function (err, data) {  // db.query();  er lig med en function på grund af paranteserne
             'use strict';
             var json = [];  // var json = [];  er lig med et array på grund af firkantklammerne
             var prod = [];  // var prod = [];  er lig med et array på grund af firkantklammerne

@@ -10,6 +10,7 @@ body {
 	font-size: 13px;
 }
 
+
 h1     {  color: #000000;  }
 h2     {  color: #000000; text-align: center;  }
 
@@ -42,7 +43,7 @@ article{
 	text-align: center;
 }
 
-.article-1{
+.adr{
 	float: right;
 }
 
