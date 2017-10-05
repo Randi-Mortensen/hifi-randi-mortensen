@@ -192,8 +192,10 @@ module.exports = function (app) {
             console.log(count);//Viser om der er fat i alle variabler
 
             data.forEach(function (element, index) {
+                console.log("udskriver element");
+                console.log(element);
                 console.log("Har fat i et produkt i forEach");
-                var newType = (element.type != type); // sæt newType lig med true eller false 
+                var newType = (element.type_navn != type); // sæt newType lig med true eller false 
                 if (newType) { // hvis det er en ny type
                     if (!firsttime) { // og det ikke er første gennemløb
                         var stringProd = JSON.stringify(prod); // lav json-array om til string
@@ -202,10 +204,10 @@ module.exports = function (app) {
                         json.push(JSON.parse(obj));
                     }
                     firsttime = false; // først gennemløb slut
-                    type = element.type; // husk type
+                    type = element.type_navn; // husk type
                     prod = []; // tøm listen med produkter
                 }
-                prod.push(JSON.parse(`{"navn":"${element.produkt_navn}", "producent":"${element.producent_navn}", "type":"${element.type_navn}", "billede":"${element.produkt_billede}", "varenr":"${element.produkt_varenr}", "pris":"${element.produkt_pris}"}`)); // indsæt produkter i produktlisten
+                prod.push(JSON.parse(`{"navn":"${element.produkt_navn}", "producent":"${element.producent_navn}", "type_navn":"${element.type_navn}", "billede":"${element.produkt_billede}", "varenr":"${element.produkt_varenr}", "pris":"${element.produkt_pris}"}`)); // indsæt produkter i produktlisten
 
                 // hvis det er sidste produkt, så sæt det på listen (bør laves som en function, da koden er en kopi af ovenstående)
                 if (count <= (index + 1)) {

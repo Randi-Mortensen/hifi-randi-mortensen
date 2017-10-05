@@ -7,6 +7,7 @@ men er ikke sikker på jeg helt forstår det så
 også her vil det være rigtig godt med noget reptition
 
 Mangler meget forståelse for functioner, forEach og fetch og hvordan de arbejder sammen
+samt at sætte nye produkter ind i databasen fra hjemmesiden og ikke kun ude i phpmyadmin.
 
 Der ud over mangler jeg at få søgefeltet til at virke og lave login
 
