@@ -1,13 +1,11 @@
 const db = require('../config/sql').connect();
 
 module.exports = function (app) {
-    // Henter alle produkter
-    // gør_noget();  er lig med en function på grund af paranteserne
-    // var json = [];  er lig med et array på grund af firkantklammerne
-    // var type = "";  er lig med en string på grund af plingerne
-    // app.get //app er lig med et object get er lig en function
 
-    app.get('/produkt', function (req, res) {
+    //---- Henter alle produkter -------------------------------------------------------------------------------------------
+
+    app.get('/produkt', function (req, res) {  // app.get app er lig med et object get er lig en function
+
         var sql = `SELECT 
         produkt.id      AS produkt_id,
         produkt.navn    AS produkt_navn, 
@@ -17,7 +15,7 @@ module.exports = function (app) {
 
         producent.navn    AS producent_navn, 
         type.navn     AS type_navn 
-        
+
         FROM produkt 
 
         INNER join producent ON produkt.producent = producent.id
@@ -25,11 +23,11 @@ module.exports = function (app) {
 
         ORDER BY type.id`
 
-        db.query(sql, function (err, data) {
+        db.query(sql, function (err, data) {  // gør_noget();  er lig med en function på grund af paranteserne
             'use strict';
-            var json = [];  // array
-            var prod = [];
-            var type = "";  // string
+            var json = [];  // var json = [];  er lig med et array på grund af firkantklammerne
+            var prod = [];  // var prod = [];  er lig med et array på grund af firkantklammerne
+            var type = "";  // var type = "";  er lig med en string på grund af plingerne
             var firsttime = true;
             var count = data.length;
 
@@ -64,8 +62,10 @@ module.exports = function (app) {
             res.send(json);
         })
     })
-    // henter produkter tilhørende type      (kald type kategori i næste project)
-    app.get('/produkt/type/:id', function (req, res) {
+    //----henter produkter tilhørende type      (kald type kategori i næste project)----------------------------------------------------------------
+
+    app.get('/produkt/type/:id', function (req, res) {  // app.get app er lig med et object get er lig en function
+
         var sql = `SELECT 
         produkt.id      AS produkt_id,
         produkt.navn    AS produkt_navn, 
@@ -81,15 +81,15 @@ module.exports = function (app) {
         INNER join producent ON produkt.producent = producent.id
         INNER join type ON produkt.type = type.id
 
-        WHERE type = ?
+        WHERE type.id = ?
 
         ORDER BY type.id`
 
-        db.query(sql, [req.params.id], function (err, data) {
+        db.query(sql, [req.params.id], function (err, data) {  // gør_noget();  er lig med en function på grund af paranteserne
             'use strict';
-            var json = [];
-            var prod = [];
-            var type = "";
+            var json = [];  // var json = [];  er lig med et array på grund af firkantklammerne
+            var prod = [];  // var prod = [];  er lig med et array på grund af firkantklammerne
+            var type = "";  // var type = "";  er lig med en string på grund af plingerne
             var firsttime = true;
             var count = data.length;
 
@@ -127,6 +127,7 @@ module.exports = function (app) {
         })
     })
 
+    //---- Send nyt produkt til database -------------------------------------------------------------------------------------------
 
     app.post('/create', (req, res) => {
 

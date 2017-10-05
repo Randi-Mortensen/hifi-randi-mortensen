@@ -38,6 +38,15 @@ hr {
 	text-align: center;
 }
 
+article{
+	text-align: center;
+}
+
+.article-1{
+	float: right;
+}
+
+
 footer{
   text-align: center;
 }

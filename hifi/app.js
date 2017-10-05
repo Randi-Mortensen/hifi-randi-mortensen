@@ -1,8 +1,8 @@
 const restify = require('restify');
 const corsmiddleware = require('restify-cors-middleware');
 const server = restify.createServer({
-    'name': 'hifi',
-    'version': '1.0.0'
+    'name': 'hifi', //key : value
+    'version': '1.0.0' //key : value
 });
 
 server.use(restify.plugins.bodyParser()); //bruges ved kontaktformularer.
