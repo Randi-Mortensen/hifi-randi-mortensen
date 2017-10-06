@@ -690,9 +690,22 @@ produkt.html
     <button id="gem">Gem</button>
     <br><br> 
 ```
-    eks.:   Pioneer PLX-500.K
+    eks.:   PLX-500.K
             Pioneer
             pladespiller
             plx-500-k.jpg
             702
             2600.00
+
+## Typer Note
+typeOf(); //undefined
+typeOf(null); //null
+typeOf(NaN); //number
+typeOf(5); //number
+typeOf({}); //object
+typeOf([]); //array
+typeOf(''); //string
+typeOf(function () {}); //function
+typeOf(/a/) //regexp
+typeOf(new Date()) //date
+

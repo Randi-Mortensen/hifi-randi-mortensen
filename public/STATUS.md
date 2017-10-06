@@ -1,15 +1,25 @@
-## Mangler en plan over hvordan jeg best for repeteret alt det grundlæggende
-## da jeg har meget svært ved at se hvad der gør hvad og hvorfor det gør som det gør.
+## STATUS For PROJECT HiFi Klubben
 
-## Har fået lavet så jeg kan hente produkter 
-Ud fra kategorier og for hver enkelt kategori 
-men er ikke sikker på jeg helt forstår det så
-også her vil det være rigtig godt med noget reptition
+## UDFØRT ARBEJDE:
+* oprettet database med relationer
+* oprettet api server
+* oprettet public server
+* fået lavet så det er muligt at hente produkter ud fra kategorier og for hver enkelt kategori.
+* Lavet contact formular.
 
-Mangler meget forståelse for functioner, forEach og fetch og hvordan de arbejder sammen
-samt at sætte nye produkter ind i databasen fra hjemmesiden og ikke kun ude i phpmyadmin.
+#### Flere oplysninger om det udførte arbejde findes i README.md filen.
 
-Der ud over mangler jeg at få søgefeltet til at virke og lave login
+## ENDNU IKKE UDFØRT:
 
-Har planer om at bruge min ferie på nogle javascript tutorial i efterårsferien.
+* Søge felt
+* Upload til database fra server 
 
+
+## Mangler forståelse for:
+* Mangler meget forståelse for functioner, forEach og fetch og hvordan de arbejder sammen samt at sætte nye produkter ind i databasen fra server da jeg lige nu kun kan sætte nye produkter ind via phpmyadmin.
+
+* Samt reptition af hvordan det var man lavede en rigtig dokumentation af et project som brian viste os meget kort.
+
+## Planer for reptition: 
+* Bruge min ferie på nogle javascript tutorial.
+* Og forhåbenlig lidt opgaver fra jer med guider så der er en mulighed for at få bare lidt forståelse for hvad det er jeg sider og arbejder med.
