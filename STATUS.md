@@ -22,4 +22,14 @@
 
 ## Planer for reptition: 
 * Bruge min ferie på nogle javascript tutorial.
-* Og forhåbenlig lidt opgaver fra jer med guider så der er en mulighed for at få bare lidt forståelse for hvad det er jeg sider og arbejder med.
+* Og forhåbenlig lidt opgaver fra jer med step by step guider så der er en mulighed for at få bare lidt forståelse for hvad det er jeg sider og arbejder med.
+
+
+Route:
+
+find routes:
+højre klik på hifi vælg find in folder søg .get
+
+backend 
+api indeholder routes og lytter efter hvornår der bedes om noget 
+søg efter routes .get

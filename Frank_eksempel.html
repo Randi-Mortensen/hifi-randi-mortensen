@@ -1,0 +1,8 @@
+.then ((data) => { console.log(data); var type = ''; document.getElementById('content').innerHTML = ""; data.forEach(function
+(item){ document.getElementById('content').innerHTML +=
+<h2></h2>; item.prod.forEach(function (prod){ document.getElementById('content').innerHTML += `
+<div>
+    <b>${prod.navn}</b><br> pris: kr. ${prod.pris}>br>
+    <img src="images/${prod.image}" width="60px">
+</div>
+`; }, this); }) }) }

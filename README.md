@@ -9,8 +9,7 @@ Upload alt til GitHub og pak alle HiFi filer og mapper sammen med den exporteret
 # hifi-randi-mortensen
 Webintegration Hi-Fi project
 
-# app.js
-
+# hifi
 ## Opsætning af server
 
 start med npm init
@@ -22,7 +21,7 @@ Installerer følgende modules:
 >npm install restify, restify-cors-middleware, mysql2 --save
 
 Restify gør det muligt at oprette en API-server (get, post, put og delete).
-
+## hifi app.js
 ```javascript
 const restify = require('restify');
 const corsmiddleware = require('restify-cors-middleware');
