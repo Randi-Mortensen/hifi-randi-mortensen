@@ -697,14 +697,14 @@ produkt.html
             2600.00
 
 ## Typer Note
-typeOf(); //undefined
-typeOf(null); //null
-typeOf(NaN); //number
-typeOf(5); //number
-typeOf({}); //object
-typeOf([]); //array
-typeOf(''); //string
-typeOf(function () {}); //function
-typeOf(/a/) //regexp
-typeOf(new Date()) //date
+* typeOf(); //undefined
+* typeOf(null); //null
+* typeOf(NaN); //number
+* typeOf(5); //number
+* typeOf({}); //object
+* typeOf([]); //array
+* typeOf(''); //string
+* typeOf(function () {}); //function
+* typeOf(/a/) //regexp
+* typeOf(new Date()) //date
 

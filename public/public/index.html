@@ -19,26 +19,34 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
                     aria-expanded="false">
-                                      <span class="sr-only">Toggle navigation</span>
-                                      <span class="icon-bar"></span>
-                                      <span class="icon-bar"></span>
-                                      <span class="icon-bar"></span>
-                                    </button>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" href="index.html">HiFi Klubben</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Forside <span class="sr-only">(current)</span></a></li>
-                    <li><a href="produkt.html">Produkter</a></li>
-                    <li><a href="kontakt.html">kontakt</a></li>
+                    <li class="active">
+                        <a href="index.html">Forside
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="produkt.html">Produkter</a>
+                    </li>
+                    <li>
+                        <a href="kontakt.html">kontakt</a>
+                    </li>
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
@@ -77,42 +85,54 @@
                         <h2>CD-Player</h2>
                         <h3>Sony CDP-CE405</h3>
                         <p>Fin 5-disc changer. Incl. fjernbetjening </p>
-                        <p><a class="btn btn-default" href="http://localhost:3000/produkt.html?produktID=1" role="button">Se produkt detaljer »</a></p>
+                        <p>
+                            <a class="btn btn-default" href="http://localhost:3000/produkt.html?produktID=1" role="button">Se produkt detaljer »</a>
+                        </p>
                     </div>
                     <!--/.col-xs-6.col-lg-4-->
                     <div class="col-xs-6 col-lg-4">
                         <h2>DVD-Player</h2>
                         <h3>Pioneer DV-2242</h3>
                         <p>DVD player med en utrolig fin lyd. </p>
-                        <p><a class="btn btn-default" href="http://localhost:3000/produkt.html?typeID=2" role="button">Se produkt detaljer »</a></p>
+                        <p>
+                            <a class="btn btn-default" href="http://localhost:3000/produkt.html?typeID=2" role="button">Se produkt detaljer »</a>
+                        </p>
                     </div>
                     <!--/.col-xs-6.col-lg-4-->
                     <div class="col-xs-6 col-lg-4">
                         <h2>Record Player</h2>
                         <h3>Sonos Pro-Ject</h3>
                         <p>Lyd i nutidens højeste klasse i et design.</p>
-                        <p><a class="btn btn-default" href="http://localhost:3000/produkt.html?typeID=3" role="button">Se produkt detaljer »</a></p>
+                        <p>
+                            <a class="btn btn-default" href="http://localhost:3000/produkt.html?typeID=3" role="button">Se produkt detaljer »</a>
+                        </p>
                     </div>
                     <!--/.col-xs-6.col-lg-4-->
                     <div class="col-xs-6 col-lg-4">
                         <h2>Surroundanlæg</h2>
                         <h3>Sonos Surroundanlæg</h3>
                         <p>Trådløst Surroundsystem opbygget af de smarte Sonos-Højtalere.</p>
-                        <p><a class="btn btn-default" href="http://localhost:3000/produkt.html?typeID=4" role="button">Se produkt detaljer »</a></p>
+                        <p>
+                            <a class="btn btn-default" href="http://localhost:3000/produkt.html?typeID=4" role="button">Se produkt detaljer »</a>
+                        </p>
                     </div>
                     <!--/.col-xs-6.col-lg-4-->
                     <div class="col-xs-6 col-lg-4">
                         <h2>Højtaler</h2>
                         <h3>Pioneer HPM-30</h3>
                         <p>Den perfekte lyd til børneværelset eller det lille kontor. </p>
-                        <p><a class="btn btn-default" href="http://localhost:3000/produkt.html?typeID=4" role="button">Se produkt detaljer »</a></p>
+                        <p>
+                            <a class="btn btn-default" href="http://localhost:3000/produkt.html?typeID=4" role="button">Se produkt detaljer »</a>
+                        </p>
                     </div>
                     <!--/.col-xs-6.col-lg-4-->
                     <div class="col-xs-6 col-lg-4">
                         <h2>Forstærker</h2>
                         <h3>Pioneer SA-708</h3>
                         <p>Med denne for du en forstærker der spiller fantastisk. </p>
-                        <p><a class="btn btn-default" href="/produkt.html" role="button">Se produkt detaljer »</a></p>
+                        <p>
+                            <a class="btn btn-default" href="/produkt.html" role="button">Se produkt detaljer »</a>
+                        </p>
                     </div>
                     <!--/.col-xs-6.col-lg-4-->
                 </div>
@@ -135,12 +155,24 @@
 
         <hr>
 
-        <footer>
-            <p>© HiFi Klubben v. Randi Mortensen 2017</p>
-        </footer>
+
 
     </div>
     <!--/.container-->
+    <!-- Indlæser hjælpefunktioner -->
+    <script src="./assets/js/funktioner.js"></script>
+
+    <!-- Indlæser filen, der indeholder statiske kategorier (kun til at teste eksemplet) -->
+    <script src="assets/data/data_kategorier.js"></script>
+
+    <!-- Indlæser filen, der genererer menuen dynamisk -->
+    <script src="./assets/js/menu.js"></script>
+
+    <!-- Indlæser filen, der skal manipulere indholdet af siden -->
+    <script src="./assets/js/produkt.js"></script>
 </body>
+<footer>
+    <p>© HiFi Klubben v. Randi Mortensen 2017</p>
+</footer>
 
 </html>
