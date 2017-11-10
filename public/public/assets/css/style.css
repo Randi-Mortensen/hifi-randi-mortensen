@@ -25,7 +25,10 @@ body {
 	background-color: rgb(253, 253, 253);
 }
 
-h1     {  color: #000000;  }
+h1     {  
+    color: #000000;
+    text-align: center;
+}
 h2     {  color: #000000; text-align: center;  }
 
 #menu-links{
@@ -47,6 +50,27 @@ hr {
 	margin-top: 40px;
 	border: 0px;
 	border-top: 1px solid #9B9B9B;
+}
+
+.loginForm{
+    text-align: center;
+    color: #ffffff;
+	width: 40%;
+	margin: 0 auto;
+    margin-bottom: 2px;
+	margin-top:50px;
+    padding: 2%;
+    background: linear-gradient(darkred 20%,black 80%);
+    /* background-color: #425d70; */
+    float: left;
+    margin-left: 30%;
+}
+
+.loginForm button{
+    width: 20%;
+    background: darkred;
+    margin-top: 20px;
+    margin-left: 10%;
 }
 
 #content{
