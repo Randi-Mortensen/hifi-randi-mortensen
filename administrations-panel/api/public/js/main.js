@@ -128,13 +128,13 @@ document.addEventListener("DOMContentLoaded", event => {
             document.querySelector('#produktForm').innerHTML = `
          <h2>Opret nyt produkt</h2>
          <label>Produkt navn</label>
-         <input type="text" name="produktNavn" id="produktNavn" value="">
+         <input type="text" name="produktNavn" id="Navn" value="">
          <br>
          <label>Produkt beskrivelse</label>
-         <input type="text" name="produktDescription" id="produktDescription" value="">
+         <input type="text" name="produktDescription" id="Description" value="">
          <br>
          <label>Produkt pris</label>
-         <input type="text" name="produktPris" id="produktPris" value="">
+         <input type="text" name="produktPris" id="Pris" value="">
          <br>
          
          <button>Gem</button>
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
                   for (let i = 0; i < json.length; i++) {
                         let price = json[i].pris;
-                        pris = price.replace('.', ',');
+                        pris = pris.replace('.', ',');
                         list += `
                <tr>
                   <td>
