@@ -74,9 +74,9 @@ document.addEventListener("DOMContentLoaded", event => {
                         let produktFormButton = document.querySelector("#produktForm button");
 
                         produktFormButton.addEventListener('click', function (event) {
-                              let navn = document.querySelector('#Navn').value;
-                              let description = document.querySelector('#Description').value;
-                              let pris = document.querySelector('#Pris').value;
+                              let navn = document.querySelector('Navn').value;
+                              let description = document.querySelector('Description').value;
+                              let pris = document.querySelector('Pris').value;
                               let id = (getParameterByName('id') != null ? getParameterByName('id') : 0);
 
                               // erstat komma med punkt, så isNaN funktionen fungerer hensigtsmæssigt
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", event => {
                </tr>`;
 
                   for (let i = 0; i < json.length; i++) {
-                        let price = json[i].pris;
+                        let pris = json[i].pris;
                         pris = pris.replace('.', ',');
                         list += `
                <tr>
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", event => {
                   </td>
                   <td>${json[i].id}</td>
                   <td>${json[i].navn}</td>
-                  <td style="text-align:right">${price}</td >  
+                  <td style="text-align:right">${pris}</td >  
                </tr > `;
                   }
 
