@@ -51,7 +51,13 @@ hr {
 	border: 0px;
 	border-top: 1px solid #9B9B9B;
 }
+/*------------------------------------------------------------------------------------------------------------*/
+/*-- Start Produkt Liste ------------------*/
 
+#produktList{
+    text-align: center;
+}
+/*-- Slut Produkt Liste ------------------*/
 .loginForm{
     text-align: center;
     color: #ffffff;

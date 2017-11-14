@@ -33,7 +33,7 @@ function udskrivMenu() {
     // Du kan se længere nede i koden, hvordan den bliver brugt.
     kategorier_data.forEach(function (element) {
         html += `<li><a data-id="${element.type_id}" href="produkt.html?typeID=${element.type_id}">${element.type_navn}</a></li>`;
-        // console.log (`ID: ${element.kategori_id},  Navn: ${element.kategori_navn}`);
+        //console.log(`ID: ${element.kategori_id},  Navn: ${element.kategori_navn}`);
     });
 
     // Kopierer indholdet af html variablen til innerHTML egenskaben, dom tilhører <ul id="menu-links">

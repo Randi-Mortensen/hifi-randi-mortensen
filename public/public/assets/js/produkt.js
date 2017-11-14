@@ -71,16 +71,16 @@ function udskrivProdukter() {
             // nu er json objektet lagt ind i data variablen, udskriv data
             console.log("her burde komme produkter");
             console.log(data);
-            var content = document.getElementById('content');
-            console.log("content");
-            console.log("udskriv content");
+            var content = document.getElementById('produktList');
+            console.log("produktList");
+            console.log("udskriv produktList");
 
             var type = '';
-            document.getElementById('content').innerHTML = "";
+            document.getElementById('produktList').innerHTML = "";
             data.forEach(function (item) {
-                document.getElementById('content').innerHTML += `<h2>${item.type}</h2>`;
+                document.getElementById('produktList').innerHTML += `<h2>${item.type}</h2>`;
                 item.prod.forEach(function (prod) {
-                    document.getElementById('content').innerHTML += `
+                    document.getElementById('produktList').innerHTML += `
                         <div><br><br><br><hr>
                         <img src="assets/media/${prod.billede}" width="150px" /><br><br>
                             <b>Produkt Navn: ${prod.navn}</b><br>
