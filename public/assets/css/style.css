@@ -1,0 +1,235 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+body {
+	background-color: #FFFFFF;
+	color: #000;
+	font-family: Verdana;
+	font-size: 13px;
+}
+
+.navbar{
+    background: linear-gradient(darkred 20%,black 80%);  
+}
+
+.navbar-inverse{
+    background: linear-gradient(darkred 20%,black 80%);  
+}
+.navbar-form{
+	padding: 5px 0px;
+	margin-left: 28%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: rgb(253, 253, 253);
+}
+
+h1     {  
+    color: #000000;
+    text-align: center;
+}
+h2     {  color: #000000; text-align: center;  }
+
+#menu-links{
+	text-align: center;
+}
+
+#output{
+	text-align: center;
+}
+  
+a                         {  color: #0032F8;  text-decoration: none; }
+a:hover, a.active:hover   {  color: #0099FF; }
+a.active                  {  color: #FF7300;  }
+  
+strong {  color: #000000;  }
+em     {  color: #000000;  }
+
+hr {
+	margin-top: 40px;
+	border: 0px;
+	border-top: 1px solid #9B9B9B;
+}
+/*------------------------------------------------------------------------------------------------------------*/
+/*-- Start Produkt Liste ------------------*/
+
+#produktList{
+    text-align: center;
+}
+/*-- Slut Produkt Liste ------------------*/
+.loginForm{
+    text-align: center;
+    color: #ffffff;
+	width: 40%;
+	margin: 0 auto;
+    margin-bottom: 2px;
+	margin-top:50px;
+    padding: 2%;
+    background: linear-gradient(darkred 20%,black 80%);
+    /* background-color: #425d70; */
+    float: left;
+    margin-left: 30%;
+}
+
+.loginForm button{
+    width: 20%;
+    background: darkred;
+    margin-top: 20px;
+    margin-left: 10%;
+}
+
+#content{
+	text-align: center;
+}
+
+article{
+	text-align: center;
+}
+
+.adr{
+	float: right;
+}
+
+/* Start på Footer */
+footer {
+    position:fixed;
+    bottom:0px;
+    height:30px;
+    width: 100%;
+    background: linear-gradient(darkred 20%,black 80%);
+    color: white;
+    text-align: center;
+ }
+/* Slut på Footer */
+
+/* Her starter kontakt siden */
+
+.kontaktinfo {
+    width:100%;
+    height:auto;
+    margin-top:10px;
+	margin-left:40px;
+    text-align:center;
+    background:#364C5C;
+}
+
+.find {
+    width:39%;
+    height:auto;
+	color:#000000;
+    float:left;
+    margin-top:20px;
+    margin-left:50px;
+    padding:10px;   
+}
+
+form {
+	color: #ffffff;
+	width: 30%;
+	margin: 0 auto;
+	margin-right:50px;
+    margin-bottom: 2px;
+	margin-top:10px;
+	padding: 2%;
+	float:right;
+	background-color: #425d70;
+}
+
+.formGroup {
+    position: relative;
+    margin: 1em 0;
+}
+
+.formGroup__label {
+    color: #eff3f6;
+    position: absolute;
+    top: -.6em;
+    left: .8em;
+    background-color: #425d70;
+    font-size: 80%;
+    padding: 0 .4em;
+}
+
+.userResponse {
+	position: absolute;
+	font-size: 150%;
+	color: red;
+	top: .1em;
+    right: .2em;
+	box-sizing: border-box;
+	visibility: hidden;
+	transition: all .2s linear;
+    cursor: help;
+}
+
+.userResponse--show {
+    visibility: visible;
+}
+
+.formGroup__input {
+	width: 100%;
+	background-color: #425d70;
+    border: 1px solid lightgrey;
+	margin: 0;
+	box-sizing: border-box;
+	padding: .5em 1em;
+    transition: all .2s linear;
+}
+
+.formGroup__input--error {
+    border: 1px solid red;
+}
+
+form textarea {
+	resize: none;
+	height: 100px;
+}
+
+.btn {
+	font-weight: 600;
+	border: none;
+    margin: 0;
+    box-sizing: border-box;
+    padding: .5em 1em;
+}
+
+.btn--success {
+    background-color: #425d70;
+	color: white;
+}
+
+.btn--disabled {
+    background-color: hsla(0,0%,50%,1.00);
+    color: #ffffff;
+}
+
+.formResponse {
+    position: fixed;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    visibility: hidden;
+    transition: all .2s ease;
+}
+
+.formResponse--error {
+    background-color: hsla(0,81%,58%,1.00);
+    color: white;
+}
+
+.formResponse--success {
+    background-color: #425d70;
+    color: white;
+}
+
+.formResponse p {
+    text-align: center;
+    line-height: 2.5em;
+    margin: 0;
+}
+
+.formResponse--show {
+    visibility: visible;
+    height: 2.5em;
+}
