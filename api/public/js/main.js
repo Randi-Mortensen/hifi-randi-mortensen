@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", event => {
                         let pris = json[0].pris;
                         pris = pris.replace('.', ',');
 
-                        document.querySelector('#productForm').innerHTML = `
+                        document.querySelector('#produktForm').innerHTML = `
                <h2>Rediger produkt</h2>
                <label>Produkt navn</label>
                <input type="text" name="produktNavn" id="Navn" value="${json[0].navn}">
@@ -74,9 +74,9 @@ document.addEventListener("DOMContentLoaded", event => {
                         let produktFormButton = document.querySelector("#produktForm button");
 
                         produktFormButton.addEventListener('click', function (event) {
-                              let navn = document.querySelector('Navn').value;
-                              let description = document.querySelector('Description').value;
-                              let pris = document.querySelector('Pris').value;
+                              let navn = document.querySelector('#Navn').value; //husk og angiv om det er id eller class med # eller . foran
+                              let description = document.querySelector('#Description').value;
+                              let pris = document.querySelector('#Pris').value;
                               let id = (getParameterByName('id') != null ? getParameterByName('id') : 0);
 
                               // erstat komma med punkt, så isNaN funktionen fungerer hensigtsmæssigt

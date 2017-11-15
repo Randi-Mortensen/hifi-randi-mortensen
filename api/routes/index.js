@@ -64,11 +64,11 @@ module.exports = (app) => {
 
         let navn = (req.body.navn == undefined ? '' : req.body.navn);
         let description = (req.body.description == undefined ? '' : req.body.description);
-        let pris = (req.body.pris == undefined ? 0 : req.body.price);
+        let pris = (req.body.pris == undefined ? 0 : req.body.pris);
         let id = (isNaN(req.params.id) ? 0 : req.params.id);
         pris = pris.replace(',', '.');
 
-        if (name != '' && description != '' && !isNaN(pris) && id > 0) {
+        if (navn != '' && description != '' && !isNaN(pris) && id > 0) {
 
             let db = mysql.connect();
             db.execute(`UPDATE produkt SET navn = ?, description = ?, pris = ? WHERE id = ?`, [navn, description, pris, id], (err, rows) => {
