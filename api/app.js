@@ -8,6 +8,12 @@ const app = restify.createServer({
     version: '1.0.0'
 });
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+    next();
+});
+
 const logger = require('morgan');
 app.use(logger('dev'));
 

@@ -78,7 +78,7 @@ function udskrivProdukter() {
             var type = '';
             document.getElementById('produktList').innerHTML = "";
             data.forEach(function (item) {
-                document.getElementById('produktList').innerHTML += `<h2>${item.typeID}</h2>
+                document.getElementById('produktList').innerHTML += `<h2>${item.type}</h2>
                 <img src="assets/media/${item.billede}" width="150px" />
                 <br><h4>${item.navn}</h4>
                 <h4>pris: kr. ${item.pris}</h4><br> 
