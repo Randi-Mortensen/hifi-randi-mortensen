@@ -5,7 +5,7 @@
     // Tilføjer en EventListener, der lytter på om browseren er færdig med at indlæse HTML'en
     document.addEventListener('DOMContentLoaded', function () {
 
-        // Denne funktion er defineret i filen "js/menu.js"
+        // Denne funktion er defineret i filen "assets/js/menu.js"
         udskrivMenu();
     });
 })();
@@ -23,7 +23,7 @@ function udskrivMenu() {
     var kategorier_data = statisk_kategorier_data();
 
     // Henter en reference til HTML elementet #menu-links
-    // var menu_links = document.querySelector("#menu-links");
+    var menu_links = document.querySelector("#menu-links");
 
     // Denne variabel fylder vi løbende links i (<li> og <a>)
     var html = "";
@@ -37,7 +37,7 @@ function udskrivMenu() {
     });
 
     // Kopierer indholdet af html variablen til innerHTML egenskaben, dom tilhører <ul id="menu-links">
-    // menu_links.innerHTML = html;
+    menu_links.innerHTML = html;
 
 
     // --------------------------------------------------------

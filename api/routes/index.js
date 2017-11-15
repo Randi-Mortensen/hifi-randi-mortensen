@@ -111,7 +111,7 @@ module.exports = (app) => {
 
     // ========================== static
     app.get('/.*', restify.plugins.serveStatic({
-        'directory': 'public',
+        'directory': '../public/admin',
         'default': 'index.html'
     }));
 
