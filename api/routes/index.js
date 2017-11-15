@@ -37,12 +37,12 @@ module.exports = (app) => {
 
     app.post('/produkt', (req, res, next) => {
 
-        let name = (req.body.name == undefined ? '' : req.body.name);
+        let navn = (req.body.navn == undefined ? '' : req.body.navn);
         let description = (req.body.description == undefined ? '' : req.body.description);
-        let price = (req.body.price == undefined ? 0 : req.body.price);
-        price = price.replace(',', '.');
+        let pris = (req.body.pris == undefined ? 0 : req.body.pris);
+        pris = pris.replace(',', '.');
 
-        if (name != '' && description != '' && !isNaN(price)) {
+        if (navn != '' && description != '' && !isNaN(pris)) {
 
             let db = mysql.connect();
             db.execute(`INSERT INTO produkt SET navn = ?, description = ?, pris = ?`, [navn, description, pris], (err, rows) => {
