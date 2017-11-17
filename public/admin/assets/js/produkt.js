@@ -215,9 +215,9 @@ document.addEventListener("DOMContentLoaded", event => {
                      <a href="?action=edit&id=${json[i].id}" class="button edit">ret</a>
                      <a href="#" class="button delete" data-id="${json[i].id}">slet</a>
                   </td>
-                  <td>${json[i].id}</td>
-                  <td>${json[i].navn}</td>
-                  <td style="text-align:right">${pris}</td >  
+                  <td>${json[i].produkt_id}</td>
+                  <td>${json[i].produkt_navn}</td>
+                  <td style="text-align:right">${produkt_pris}</td >  
                </tr > `;
                   }
 

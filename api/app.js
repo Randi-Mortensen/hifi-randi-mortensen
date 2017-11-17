@@ -4,14 +4,8 @@ const path = require('path');
 const port = process.env.port || 3000;
 
 const app = restify.createServer({
-    name: 'hifi',
-    version: '1.0.0'
-});
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-    next();
+   name: 'Administrations Panel Eksempel',
+   version: '1.0.0'
 });
 
 const logger = require('morgan');
@@ -24,7 +18,7 @@ app.use(restify.plugins.queryParser());
 require(path.join(__dirname, 'routes', 'index'))(app);
 
 app.listen(port, function (err) {
-    if (err) console.log(err);
-    console.log('========================================================================================');
-    console.log('%s is listening on port %s, address: %s', app.name, port, 'http://localhost:' + port);
+   if (err) console.log(err);
+   console.log('========================================================================================');
+   console.log('%s is listening on port %s, address: %s', app.name, port, 'http://localhost:' + port);
 });

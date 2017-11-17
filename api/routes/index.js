@@ -20,7 +20,7 @@ module.exports = (app) => {
         let id = (isNaN(req.params.id) ? 0 : req.params.id);
         if (id > 0) {
             let db = mysql.connect();
-            db.execute(`SELECT * FROM produkt WHERE id = ?`, [req.params.id], (err, rows) => {
+            db.execute(`SELECT * FROM produkt WHERE produkt_id = ?`, [req.params.id], (err, rows) => {
                 if (err) {
                     console.log(err);
                 } else {
@@ -45,7 +45,7 @@ module.exports = (app) => {
         if (navn != '' && description != '' && !isNaN(pris)) {
 
             let db = mysql.connect();
-            db.execute(`INSERT INTO produkt SET navn = ?, description = ?, pris = ?`, [navn, description, pris], (err, rows) => {
+            db.execute(`INSERT INTO produkt SET produkt_navn = ?, produkt_description = ?, produkt_pris = ?`, [navn, description, pris], (err, rows) => {
                 if (err) {
                     console.log(err);
                 } else {
@@ -71,7 +71,7 @@ module.exports = (app) => {
         if (navn != '' && description != '' && !isNaN(pris) && id > 0) {
 
             let db = mysql.connect();
-            db.execute(`UPDATE produkt SET navn = ?, description = ?, pris = ? WHERE id = ?`, [navn, description, pris, id], (err, rows) => {
+            db.execute(`UPDATE produkt SET produkt_navn = ?, produkt_description = ?, produkt_pris = ? WHERE produkt_id = ?`, [navn, description, pris, id], (err, rows) => {
                 if (err) {
                     console.log(err);
                 } else {
@@ -90,7 +90,7 @@ module.exports = (app) => {
         let id = (isNaN(req.params.id) ? 0 : req.params.id);
         if (id > 0) {
             let db = mysql.connect();
-            db.execute(`DELETE FROM produkt WHERE id = ?`, [req.params.id], (err, rows) => {
+            db.execute(`DELETE FROM produkt WHERE produkt_id = ?`, [req.params.id], (err, rows) => {
                 if (err) {
                     console.log(err);
                 } else {
@@ -111,7 +111,7 @@ module.exports = (app) => {
 
     // ========================== static
     app.get('/.*', restify.plugins.serveStatic({
-        'directory': '../public/admin',
+        'directory': 'public',
         'default': 'index.html'
     }));
 
