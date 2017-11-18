@@ -6,7 +6,7 @@ const mysql = require(path.join(__dirname, '..', 'config', 'mysql'));
 module.exports = (app) => {
 
     // route til at servere billederne til klienten
-    app.get('/images/:name', (req, res, next) => {
+    app.get('./images/:name', (req, res, next) => {
         // det er kun jpg eller png filer jeg ønsker at tillade adgang til her
         if (path.extname(req.params.name) == '.jpg' || path.extname(req.params.name) == '.png') {
             // forsøg at læs billede filen fra images mappen...
