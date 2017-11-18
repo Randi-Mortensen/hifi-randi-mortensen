@@ -10,13 +10,6 @@ body {
 	font-size: 13px;
 }
 
-.navbar{
-    background: linear-gradient(darkred 20%,black 80%);  
-}
-
-.navbar-inverse{
-    background: linear-gradient(darkred 20%,black 80%);  
-}
 .navbar-form{
 	padding: 5px 0px;
 	margin-left: 28%;
@@ -25,10 +18,7 @@ body {
 	background-color: rgb(253, 253, 253);
 }
 
-h1     {  
-    color: #000000;
-    text-align: center;
-}
+h1     {  color: #000000;  }
 h2     {  color: #000000; text-align: center;  }
 
 #menu-links{
@@ -51,34 +41,6 @@ hr {
 	border: 0px;
 	border-top: 1px solid #9B9B9B;
 }
-/*------------------------------------------------------------------------------------------------------------*/
-/*-- Start Produkt Liste ------------------*/
-
-#produktList{
-    text-align: center;
-}
-
-/*-- Slut Produkt Liste ------------------*/
-.loginForm{
-    text-align: center;
-    color: #ffffff;
-	width: 40%;
-	margin: 0 auto;
-    margin-bottom: 2px;
-	margin-top:50px;
-    padding: 2%;
-    background: linear-gradient(darkred 20%,black 80%);
-    /* background-color: #425d70; */
-    float: left;
-    margin-left: 30%;
-}
-
-.loginForm button{
-    width: 20%;
-    background: darkred;
-    margin-top: 20px;
-    margin-left: 10%;
-}
 
 #content{
 	text-align: center;
@@ -92,17 +54,10 @@ article{
 	float: right;
 }
 
-/* Start på Footer */
-footer {
-    position:fixed;
-    bottom:0px;
-    height:30px;
-    width: 100%;
-    background: linear-gradient(darkred 20%,black 80%);
-    color: white;
-    text-align: center;
- }
-/* Slut på Footer */
+
+footer{
+  text-align: center;
+}
 
 /* Her starter kontakt siden */
 
