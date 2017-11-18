@@ -1,34 +1,85 @@
- body {
-    font: 14px verdana, arial, sans-serif;
- }
+body {
+   font: 14px verdana, arial, sans-serif;
+}
 
- label {
-    width: 145px;
-    display: inline-block;
- }
+input[type=text] {
+   vertical-align: top;
+   width: 200px;
+   display: inline-block;
+}
 
- button,
- a.button {
-    margin: 2px;
-    padding: 2px 5px;
-    border: solid 1px #444444;
-    background: #dddddd;
-    color: #333333;
-    font: 12px verdana, arial, sans-serif;
-    text-decoration: none;
- }
+label {
+   vertical-align: top;
+   width: 150px;
+   display: inline-block;
+}
 
- th,
- td {
-    height: 22px;
- }
+button,
+a.button {
+   margin: 2px;
+   padding: 2px 5px;
+   border: solid 1px #444444;
+   background: #dddddd;
+   color: #333333;
+   font: 12px verdana, arial, sans-serif;
+   text-decoration: none;
+   border-radius: 5px;
+}
 
- img.loading {
-    width: 220px;
-    height: 145px;
- }
+th,
+td {
+   line-height: 22px;
+}
 
- .error {
-    color: #dd0000;
-    font-weight: bold;
- }
+img.loading {
+   width: 220px;
+}
+
+img {
+   border: solid 1px #999999;
+}
+
+.error {
+   color: #dd0000;
+   font-weight: bold;
+}
+
+table td img {
+   width: 75px;
+   border-radius: 5px;
+}
+
+#productForm img {
+   width: 200px;
+   margin: 2px 1px;
+}
+
+button.delete,
+a.delete {
+   background: #c0392b;
+   color: #ffffff;
+}
+
+button.edit,
+a.edit {
+   background: #2980b9;
+   color: #ffffff;
+}
+
+button.save,
+a.save {
+   background: #2ecc71;
+   color: #ffffff;
+}
+
+button.cancel,
+a.cancel {
+   background: #2c3e50;
+   color: #ffffff;
+}
+
+div.form-field {
+   vertical-align: top;
+   padding: 2px;
+   margin: 5px;
+}
