@@ -40,9 +40,9 @@ function udskrivProdukter() {
 
         // Da dette eksempel ikke specifikt handler om API'er,
         // vil jeg bare nøjes med at vise, hvordan man bruger kategoriID i fetch'ens adresse
-        var fetchUrl = 'http://localhost:1337/produkt/'; //Hvis ikke typeID vises i url'en vises siden fra dette link 
+        var fetchUrl = 'http://localhost:3000/produkt/'; //Hvis ikke typeID vises i url'en vises siden fra dette link 
         if (typeID > 0) {
-            fetchUrl = `http://localhost:1337/produkt/type/${typeID}`; //Vises typeID i url'en vises siden for det valgte typeID
+            fetchUrl = `http://localhost:3000/produkt/type/${typeID}`; //Vises typeID i url'en vises siden for det valgte typeID
         }
         //var 
         // fetch (fetchUrl).then().then() ...
@@ -56,7 +56,7 @@ function udskrivProdukter() {
     }
     else {
         console.log("typeID blev ikke fundet i URL'en");
-        fetchUrl = 'http://localhost:1337/produkt/';
+        fetchUrl = 'http://localhost:3000/produkt/';
     }
 
 
@@ -71,16 +71,16 @@ function udskrivProdukter() {
             // nu er json objektet lagt ind i data variablen, udskriv data
             console.log("her burde komme produkter");
             console.log(data);
-            var content = document.getElementById('content');
-            console.log("content");
-            console.log("udskriv content");
+            var content = document.getElementById('produktList');
+            console.log("produktList");
+            console.log("udskriv produktList");
 
             var type = '';
-            document.getElementById('content').innerHTML = "";
+            document.getElementById('produktList').innerHTML = "";
             data.forEach(function (item) {
-                document.getElementById('content').innerHTML += `<h2>${item.type}</h2>`;
+                document.getElementById('produktList').innerHTML += `<h2>${item.type}</h2>`;
                 item.prod.forEach(function (prod) {
-                    document.getElementById('content').innerHTML += `
+                    document.getElementById('produktList').innerHTML += `
                         <div><br><br><br><hr>
                         <img src="assets/media/${prod.billede}" width="150px" /><br><br>
                             <b>Produkt Navn: ${prod.navn}</b><br>

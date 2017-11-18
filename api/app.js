@@ -12,10 +12,16 @@ const logger = require('morgan');
 app.use(logger('dev'));
 
 app.use(restify.plugins.acceptParser(app.acceptable));
-app.use(restify.plugins.bodyParser());
+// bodyparser skal vide hvor billederne skal placeres 
+app.use(restify.plugins.bodyParser({
+   mapParms: true,
+   mapFiles: true,
+   keepExtensions: true,
+   uploadDir: './api/tmp_upload'
+}));
 app.use(restify.plugins.queryParser());
 
-require(path.join(__dirname, 'routes', 'index'))(app);
+require(path.join(__dirname, 'routes', 'products'))(app);
 
 app.listen(port, function (err) {
    if (err) console.log(err);

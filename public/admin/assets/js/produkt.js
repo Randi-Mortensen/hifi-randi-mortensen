@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", event => {
                   </td>
                   <td>${json[i].produkt_id}</td>
                   <td>${json[i].produkt_navn}</td>
-                  <td style="text-align:right">${produkt_pris}</td >  
+                  <td style="text-align:right">${pris}</td >  
                </tr > `;
                   }
 

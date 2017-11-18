@@ -6,7 +6,7 @@ module.exports = {
             host: 'localhost',
             user: 'root',
             password: '',
-            database: 'hifi'
+            database: 'hifi2'
         })
     }
 }
