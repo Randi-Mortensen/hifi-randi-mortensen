@@ -1,6 +1,6 @@
 const browserSync = require('browser-sync').create();
 browserSync.watch('./**/*').on('change', browserSync.reload);
 browserSync.init({
-    'server': './',
+    'server': './public',
     port: 3001
 });
