@@ -10,6 +10,11 @@ const app = restify.createServer({
 
 const logger = require('morgan');
 app.use(logger('dev'));
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+    next();
+});
 
 app.use(restify.plugins.acceptParser(app.acceptable));
 // bodyparser skal vide hvor billederne skal placeres 

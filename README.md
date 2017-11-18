@@ -1,2 +1,2 @@
-# administrations-panel-eksempel
-Administrations panel eksempel, med formular og api
+# administrations-paneltil hifi project
+Administrations panel, med formular og api

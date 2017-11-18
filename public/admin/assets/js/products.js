@@ -9,7 +9,6 @@ function getParameterByName(name, url) {
       return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-
 // slet funktionen, bindes til hver slet knap efter alle produkterne er hentet
 function sletItem(event) {
       if (confirm('Er du sikker?')) {
@@ -38,93 +37,6 @@ function sletItem(event) {
       }
 }
 
-function opdaterProdukt(event) {
-      event.preventDefault();
-      let name = document.querySelector('#productName').value;
-      let description = document.querySelector('#productDescription').value;
-      let price = document.querySelector('#productPrice').value;
-      let id = (getParameterByName('id') != null ? getParameterByName('id') : 0);
-
-      // erstat komma med punkt, så isNaN funktionen fungerer hensigtsmæssigt
-      price = price.replace(',', '.');
-
-      if (id != 0 && name != '' && description != '' && !isNaN(price) && id > 0) {
-            document.querySelector('#productsFormError').innerHTML = "";
-
-            // grib formularen og håndter indholdet via FormData objektet
-            let form = document.querySelector('form')
-            let data = new FormData(form);
-
-            // ingen headers sendes med, browseren sætter automatisk de korrekte headers alt efter formens indhold
-            let init = {
-                  method: 'put',
-                  body: data,
-                  cache: 'no-cache'
-            };
-
-            let request = new Request(`http://localhost:3000/products/${id}`, init);
-
-            fetch(request)
-                  .then(response => {
-                        console.log(response);
-                        if (response.status == 200) {
-                              window.location.replace(`index.html`);
-                        } else {
-                              throw new Error(`Produkt blev ikke opdateret: ${response.statusText}`)
-                        }
-                  }).catch(err => {
-                        console.log(err);
-                  });
-
-      } else {
-            document.querySelector('#productsFormError').innerHTML = "Udfyld venligst alle felter korrekt";
-      }
-}
-
-function opretProdukt(event) {
-      event.preventDefault();
-      let name = document.querySelector('#productName').value;
-      let description = document.querySelector('#productDescription').value;
-      let price = document.querySelector('#productPrice').value;
-      // erstat komma med punkt, så isNaN funktionen fungerer hensigtsmæssigt
-      price = price.replace(',', '.');
-      // 
-      // let image = document.querySelector('#productImage');
-
-      if (name != '' && description != '' && !isNaN(price)) {
-            document.querySelector('#productsFormError').innerHTML = "";
-
-            // grib formularen og håndter indholdet via FormData objektet
-            let form = document.querySelector('form');
-            let data = new FormData(form);
-
-            // ingen headers sendes med, browseren sætter automatisk de korrekte headers alt efter formens indhold
-            let init = {
-                  method: 'post',
-                  body: data,
-                  cache: 'no-cache'
-            };
-
-            let request = new Request(`http://localhost:3000/products`, init);
-
-            fetch(request)
-                  .then(response => {
-                        // hvis gem handlingen gik fejlfrit igennem, reloades siden
-                        if (response.status == 200) {
-                              window.location.replace(`index.html`);
-                        } else {
-                              throw new Error('Produkt blev ikke oprettet');
-                        }
-                  })
-                  .catch(err => {
-                        console.log(err);
-                  });
-      } else {
-            document.querySelector('#productsFormError').innerHTML = "Udfyld venligst alle felter korrekt";
-      }
-
-}
-
 document.addEventListener("DOMContentLoaded", event => {
 
       // forudfyld formular hvis der skal redigeres
@@ -145,41 +57,67 @@ document.addEventListener("DOMContentLoaded", event => {
 
                         document.querySelector('#productForm').innerHTML = `
                <h2>Rediger produkt</h2>
-               <form enctype="multipart/form-data">
-                  <div class="form-field">
-                     <label>Produkt navn</label>
-                     <input type="text" name="productName" id="productName" value="${json[0].product_name}">
-                  </div>
-
-                  <div class="form-field">
-                     <label>Produkt beskrivelse</label>
-                     <input type="text" name="productDescription" id="productDescription" value="${json[0].product_description}">
-                  </div>
-
-                  <div class="form-field">
-                     <label>Produkt pris</label>
-                     <input type="text" name="productPrice" id="productPrice" value="${price}">
-                  </div>
-               
-                  <div class="form-field">
-                     <label>Nuværende Billede</label>
-                     <img src="http://localhost:3000/images/${json[0].product_image}/" alt="henter billede">
-                  </div>
-               
-                  <div class="form-field">
-                     <label>Upload Nyt Billede</label>
-                     <input type="hidden" name="oldProductImage" id="oldProductImage" value="${json[0].product_image}">
-                     <input type="file" name="productImage" id="productImage" value="">
-                  </div>
-
-                  <button class="save">Gem</button>
-                  <a href="index.html" class="button cancel">Annuller</a> <span id="productsFormError" class="error"></span>
-               </form>
+               <label>Produkt navn</label>
+               <input type="text" name="productName" id="productName" value="${json[0].product_name}">
+               <br>
+               <label>Produkt beskrivelse</label>
+               <input type="text" name="productDescription" id="productDescription" value="${json[0].product_description}">
+               <br>
+               <label>Produkt pris</label>
+               <input type="text" name="productPrice" id="productPrice" value="${price}">
+               <br>
+   
+               <button>Gem</button>
+               <a href="index.html" class="button">Annuller</a> <span id="productsFormError" class="error"></span>
                <hr>`;
 
-                        // bind gem funktionen til knappen
-                        document.querySelector("#productForm button").addEventListener('click', opdaterProdukt);
+                        let productFormButton = document.querySelector("#productForm button");
 
+                        productFormButton.addEventListener('click', function (event) {
+                              let name = document.querySelector('#productName').value;
+                              let description = document.querySelector('#productDescription').value;
+                              let price = document.querySelector('#productPrice').value;
+                              let id = (getParameterByName('id') != null ? getParameterByName('id') : 0);
+
+                              // erstat komma med punkt, så isNaN funktionen fungerer hensigtsmæssigt
+                              price = price.replace(',', '.');
+
+                              if (id != 0 && name != '' && description != '' && !isNaN(price) && id > 0) {
+                                    document.querySelector('#productsFormError').innerHTML = "";
+                                    let url = `http://localhost:3000/products/${id}`;
+                                    let headers = new Headers();
+                                    headers.append('Content-Type', 'application/json');
+
+                                    let init = {
+                                          method: 'put',
+                                          headers: headers,
+                                          body: JSON.stringify({
+                                                id: id,
+                                                name: name,
+                                                description: description,
+                                                price: price
+                                          }),
+                                          cache: 'no-cache',
+                                          cors: 'cors'
+                                    };
+                                    let request = new Request(url, init);
+
+                                    fetch(request)
+                                          .then(response => {
+
+                                                if (response.status == 200) {
+                                                      window.location.replace(`index.html`);
+                                                } else {
+                                                      throw new Error('Produkt blev ikke opdateret')
+                                                }
+                                          }).catch(err => {
+                                                console.log(err);
+                                          });
+
+                              } else {
+                                    document.querySelector('#productsFormError').innerHTML = "Udfyld venligst alle felter korrekt";
+                              }
+                        });
                   })
                   .catch((err) => {
                         console.log(err);
@@ -188,36 +126,67 @@ document.addEventListener("DOMContentLoaded", event => {
       } else {
             // vis tom formular til oprettelse af et produkt
             document.querySelector('#productForm').innerHTML = `
-         <form enctype="multipart/form-data">
-            <h2>Opret nyt produkt</h2>
-            <div class="form-field">
-               <label>Produkt navn</label>
-               <input type="text" name="productName" id="productName" value="">
-            </div>
-
-            <div class="form-field">
-               <label>Produkt beskrivelse</label>
-               <input type="text" name="productDescription" id="productDescription" value="">
-            </div>
-
-            <div class="form-field">
-               <label>Produkt pris</label>
-               <input type="text" name="productPrice" id="productPrice" value="">
-            </div>
-
-            <div class="form-field">
-               <label>Produkt Billede</label>
-               <input type="file" name="productImage" id="productImage" value="">
-            </div>
-            
-            <button class="save">Gem</button>
-            <a href="index.html" class="button cancel">Annuller</a> <span id="productsFormError" class="error"></span>
-         </form>
+         <h2>Opret nyt produkt</h2>
+         <label>Produkt navn</label>
+         <input type="text" name="productName" id="productName" value="">
+         <br>
+         <label>Produkt beskrivelse</label>
+         <input type="text" name="productDescription" id="productDescription" value="">
+         <br>
+         <label>Produkt pris</label>
+         <input type="text" name="productPrice" id="productPrice" value="">
+         <br>
+         
+         <button>Gem</button>
+         <a href="index.html" class="button">Annuller</a> <span id="productsFormError" class="error"></span>
          <hr>`;
 
-            // bind gem funktionen til knappen
-            document.querySelector("#productForm button").addEventListener('click', opretProdukt);
 
+            // bind gem funktionen til knappen
+            let productFormButton = document.querySelector("#productForm button");
+            productFormButton.addEventListener('click', function (event) {
+                  let name = document.querySelector('#productName').value;
+                  let description = document.querySelector('#productDescription').value;
+                  let price = document.querySelector('#productPrice').value;
+
+                  // erstat komma med punkt, så isNaN funktionen fungerer hensigtsmæssigt
+                  price = price.replace(',', '.');
+
+                  if (name != '' && description != '' && !isNaN(price)) {
+                        document.querySelector('#productsFormError').innerHTML = "";
+                        let url = `http://localhost:3000/products/`;
+                        let headers = new Headers();
+                        headers.append('Content-Type', 'application/json');
+
+                        let init = {
+                              method: 'post',
+                              headers: headers,
+                              body: JSON.stringify({
+                                    name: name,
+                                    description: description,
+                                    price: price
+                              }),
+                              cache: 'no-cache'
+                        };
+                        let request = new Request(url, init);
+
+                        fetch(request)
+                              .then(response => {
+                                    // hvis gem handlingen gik fejlfrit igennem, reloades siden
+                                    if (response.status == 200) {
+                                          window.location.replace(`index.html`);
+                                    } else {
+                                          throw new Error('Produkt blev ikke oprettet');
+                                    }
+                              })
+                              .catch(err => {
+                                    console.log(err);
+                              });
+                  } else {
+                        document.querySelector('#productsFormError').innerHTML = "Udfyld venligst alle felter korrekt";
+                  }
+
+            });
       }
 
       // hent alle produkter og udskriv listen
@@ -235,7 +204,6 @@ document.addEventListener("DOMContentLoaded", event => {
                   <th>id</th>
                   <th>navn</th>
                   <th>pris</th>
-                  <th>Billede</th>
                </tr>`;
 
                   for (let i = 0; i < json.length; i++) {
@@ -250,7 +218,6 @@ document.addEventListener("DOMContentLoaded", event => {
                   <td>${json[i].product_id}</td>
                   <td>${json[i].product_name}</td>
                   <td style="text-align:right">${price}</td>  
-                  <td><img src="http://localhost:3000/images/${json[i].product_image}/" alt="henter billede"></td>
                </tr>`;
                   }
 

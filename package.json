@@ -1,7 +1,7 @@
 {
-  "name": "administrations-panel-eksempel",
+  "name": "hifi2",
   "version": "1.0.0",
-  "description": "Administrations panel eksempel, med formular og api",
+  "description": "Administrations panel, med formular og api til hifi projectet",
   "main": "app.js",
   "scripts": {
     "start": "nodemon api/app",
@@ -9,15 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JackBaltzer/administrations-panel-eksempel.git"
+    "url": "https://github.com/Randi-Mortensen?tab=repositories"
   },
-  "author": "Jack Baltzer",
+  "author": "Randi Mortensen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JackBaltzer/administrations-panel-eksempel/issues"
+    "url": "https://github.com/Randi-Mortensen/hifi-randi-mortensen/issues"
   },
-  "homepage": "https://github.com/JackBaltzer/administrations-panel-eksempel#readme",
+  "homepage": "https://github.com/Randi-Mortensen/hifi-randi-mortensen",
   "dependencies": {
+    "formidable": "^1.1.1",
+    "gm": "^1.23.0",
+    "guid": "0.0.12",
+    "imagemagick": "^0.1.3",
     "morgan": "^1.9.0",
     "mysql2": "^1.4.2",
     "path": "^0.12.7",
