@@ -2,5 +2,5 @@ const browserSync = require('browser-sync').create();
 browserSync.watch('./**/*').on('change', browserSync.reload);
 browserSync.init({
     'server': 'public',
-    port: 3000
+    port: 1337
 });
