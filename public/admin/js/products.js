@@ -1,149 +1,149 @@
 // https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
 function getParameterByName(name, url) {
-   if (!url) url = window.location.href;
-   name = name.replace(/[\[\]]/g, "\\$&");
-   var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-      results = regex.exec(url);
-   if (!results) return null;
-   if (!results[2]) return '';
-   return decodeURIComponent(results[2].replace(/\+/g, " "));
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 
 // slet funktionen, bindes til hver slet knap efter alle produkterne er hentet
 function sletItem(event) {
-   if (confirm('Er du sikker?')) {
-      let id = (isNaN(event.target.dataset['id']) ? 0 : event.target.dataset['id']);
+      if (confirm('Er du sikker?')) {
+            let id = (isNaN(event.target.dataset['id']) ? 0 : event.target.dataset['id']);
 
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
 
-      let init = {
-         method: 'delete',
-         headers: headers,
-         cache: 'no-cache'
-      };
-      let request = new Request(`http://localhost:3000/products/${id}`, init);
+            let init = {
+                  method: 'delete',
+                  headers: headers,
+                  cache: 'no-cache'
+            };
+            let request = new Request(`http://localhost:3000/products/${id}`, init);
 
-      fetch(request)
-         .then(response => {
-            if (response.status == 204) {
-               window.location.replace(`index.html`);
-            } else {
-               throw new Error('Produkt blev ikke slettet');
-            }
-         }).catch(err => {
-            console.log(err);
-         });
-   }
+            fetch(request)
+                  .then(response => {
+                        if (response.status == 204) {
+                              window.location.replace(`index.html`);
+                        } else {
+                              throw new Error('Produkt blev ikke slettet');
+                        }
+                  }).catch(err => {
+                        console.log(err);
+                  });
+      }
 }
 
 function opdaterProdukt(event) {
-   event.preventDefault();
-   let name = document.querySelector('#productName').value;
-   let description = document.querySelector('#productDescription').value;
-   let price = document.querySelector('#productPrice').value;
-   let id = (getParameterByName('id') != null ? getParameterByName('id') : 0);
+      event.preventDefault();
+      let name = document.querySelector('#productName').value;
+      let description = document.querySelector('#productDescription').value;
+      let price = document.querySelector('#productPrice').value;
+      let id = (getParameterByName('id') != null ? getParameterByName('id') : 0);
 
-   // erstat komma med punkt, så isNaN funktionen fungerer hensigtsmæssigt
-   price = price.replace(',', '.');
+      // erstat komma med punkt, så isNaN funktionen fungerer hensigtsmæssigt
+      price = price.replace(',', '.');
 
-   if (id != 0 && name != '' && description != '' && !isNaN(price) && id > 0) {
-      document.querySelector('#productsFormError').innerHTML = "";
+      if (id != 0 && name != '' && description != '' && !isNaN(price) && id > 0) {
+            document.querySelector('#productsFormError').innerHTML = "";
 
-      // grib formularen og håndter indholdet via FormData objektet
-      let form = document.querySelector('form')
-      let data = new FormData(form);
+            // grib formularen og håndter indholdet via FormData objektet
+            let form = document.querySelector('form')
+            let data = new FormData(form);
 
-      // ingen headers sendes med, browseren sætter automatisk de korrekte headers alt efter formens indhold
-      let init = {
-         method: 'put',
-         body: data,
-         cache: 'no-cache'
-      };
+            // ingen headers sendes med, browseren sætter automatisk de korrekte headers alt efter formens indhold
+            let init = {
+                  method: 'put',
+                  body: data,
+                  cache: 'no-cache'
+            };
 
-      let request = new Request(`http://localhost:3000/products/${id}`, init);
+            let request = new Request(`http://localhost:3000/products/${id}`, init);
 
-      fetch(request)
-         .then(response => {
-            console.log(response);
-            if (response.status == 200) {
-               window.location.replace(`index.html`);
-            } else {
-               throw new Error(`Produkt blev ikke opdateret: ${response.statusText}`)
-            }
-         }).catch(err => {
-            console.log(err);
-         });
+            fetch(request)
+                  .then(response => {
+                        console.log(response);
+                        if (response.status == 200) {
+                              window.location.replace(`index.html`);
+                        } else {
+                              throw new Error(`Produkt blev ikke opdateret: ${response.statusText}`)
+                        }
+                  }).catch(err => {
+                        console.log(err);
+                  });
 
-   } else {
-      document.querySelector('#productsFormError').innerHTML = "Udfyld venligst alle felter korrekt";
-   }
+      } else {
+            document.querySelector('#productsFormError').innerHTML = "Udfyld venligst alle felter korrekt";
+      }
 }
 
 function opretProdukt(event) {
-   event.preventDefault();
-   let name = document.querySelector('#productName').value;
-   let description = document.querySelector('#productDescription').value;
-   let price = document.querySelector('#productPrice').value;
-   // erstat komma med punkt, så isNaN funktionen fungerer hensigtsmæssigt
-   price = price.replace(',', '.');
-   // 
-   // let image = document.querySelector('#productImage');
+      event.preventDefault();
+      let name = document.querySelector('#productName').value;
+      let description = document.querySelector('#productDescription').value;
+      let price = document.querySelector('#productPrice').value;
+      // erstat komma med punkt, så isNaN funktionen fungerer hensigtsmæssigt
+      price = price.replace(',', '.');
+      // 
+      // let image = document.querySelector('#productImage');
 
-   if (name != '' && description != '' && !isNaN(price)) {
-      document.querySelector('#productsFormError').innerHTML = "";
+      if (name != '' && description != '' && !isNaN(price)) {
+            document.querySelector('#productsFormError').innerHTML = "";
 
-      // grib formularen og håndter indholdet via FormData objektet
-      let form = document.querySelector('form');
-      let data = new FormData(form);
+            // grib formularen og håndter indholdet via FormData objektet
+            let form = document.querySelector('form');
+            let data = new FormData(form);
 
-      // ingen headers sendes med, browseren sætter automatisk de korrekte headers alt efter formens indhold
-      let init = {
-         method: 'post',
-         body: data,
-         cache: 'no-cache'
-      };
+            // ingen headers sendes med, browseren sætter automatisk de korrekte headers alt efter formens indhold
+            let init = {
+                  method: 'post',
+                  body: data,
+                  cache: 'no-cache'
+            };
 
-      let request = new Request(`http://localhost:3000/products`, init);
+            let request = new Request(`http://localhost:3000/products`, init);
 
-      fetch(request)
-         .then(response => {
-            // hvis gem handlingen gik fejlfrit igennem, reloades siden
-            if (response.status == 200) {
-               window.location.replace(`index.html`);
-            } else {
-               throw new Error('Produkt blev ikke oprettet');
-            }
-         })
-         .catch(err => {
-            console.log(err);
-         });
-   } else {
-      document.querySelector('#productsFormError').innerHTML = "Udfyld venligst alle felter korrekt";
-   }
+            fetch(request)
+                  .then(response => {
+                        // hvis gem handlingen gik fejlfrit igennem, reloades siden
+                        if (response.status == 200) {
+                              window.location.replace(`index.html`);
+                        } else {
+                              throw new Error('Produkt blev ikke oprettet');
+                        }
+                  })
+                  .catch(err => {
+                        console.log(err);
+                  });
+      } else {
+            document.querySelector('#productsFormError').innerHTML = "Udfyld venligst alle felter korrekt";
+      }
 
 }
 
 document.addEventListener("DOMContentLoaded", event => {
 
-   // forudfyld formular hvis der skal redigeres
-   if (getParameterByName('action') == "edit") {
-      let productId = (getParameterByName('id') != null ? getParameterByName('id') : 0);
+      // forudfyld formular hvis der skal redigeres
+      if (getParameterByName('action') == "edit") {
+            let productId = (getParameterByName('id') != null ? getParameterByName('id') : 0);
 
-      fetch(`http://localhost:3000/products/${productId}`)
-         .then((response) => {
-            if (response.ok) {
-               return response.json();
-            }
-         })
-         .then((json) => {
+            fetch(`http://localhost:3000/products/${productId}`)
+                  .then((response) => {
+                        if (response.ok) {
+                              return response.json();
+                        }
+                  })
+                  .then((json) => {
 
-            // erstat punktum med komma
-            let price = json[0].product_price;
-            price = price.replace('.', ',');
+                        // erstat punktum med komma
+                        let price = json[0].product_price;
+                        price = price.replace('.', ',');
 
-            document.querySelector('#productForm').innerHTML = `
+                        document.querySelector('#productForm').innerHTML = `
                <h2>Rediger produkt</h2>
                <form enctype="multipart/form-data">
                   <div class="form-field">
@@ -177,17 +177,17 @@ document.addEventListener("DOMContentLoaded", event => {
                </form>
                <hr>`;
 
-            // bind gem funktionen til knappen
-            document.querySelector("#productForm button").addEventListener('click', opdaterProdukt);
+                        // bind gem funktionen til knappen
+                        document.querySelector("#productForm button").addEventListener('click', opdaterProdukt);
 
-         })
-         .catch((err) => {
-            console.log(err);
-         });
+                  })
+                  .catch((err) => {
+                        console.log(err);
+                  });
 
-   } else {
-      // vis tom formular til oprettelse af et produkt
-      document.querySelector('#productForm').innerHTML = `
+      } else {
+            // vis tom formular til oprettelse af et produkt
+            document.querySelector('#productForm').innerHTML = `
          <form enctype="multipart/form-data">
             <h2>Opret nyt produkt</h2>
             <div class="form-field">
@@ -215,20 +215,20 @@ document.addEventListener("DOMContentLoaded", event => {
          </form>
          <hr>`;
 
-      // bind gem funktionen til knappen
-      document.querySelector("#productForm button").addEventListener('click', opretProdukt);
+            // bind gem funktionen til knappen
+            document.querySelector("#productForm button").addEventListener('click', opretProdukt);
 
-   }
+      }
 
-   // hent alle produkter og udskriv listen
-   fetch('http://localhost:3000/products')
-      .then((response) => {
-         if (response.ok) {
-            return response.json();
-         }
-      })
-      .then((json) => {
-         let list = `
+      // hent alle produkter og udskriv listen
+      fetch('http://localhost:3000/products')
+            .then((response) => {
+                  if (response.ok) {
+                        return response.json();
+                  }
+            })
+            .then((json) => {
+                  let list = `
             <table>
                <tr>
                   <th></th>
@@ -238,10 +238,10 @@ document.addEventListener("DOMContentLoaded", event => {
                   <th>Billede</th>
                </tr>`;
 
-         for (let i = 0; i < json.length; i++) {
-            let price = json[i].product_price;
-            price = price.replace('.', ',');
-            list += `
+                  for (let i = 0; i < json.length; i++) {
+                        let price = json[i].product_price;
+                        price = price.replace('.', ',');
+                        list += `
                <tr>
                   <td>
                      <a href="?action=edit&id=${json[i].product_id}" class="button edit">ret</a>
@@ -252,19 +252,19 @@ document.addEventListener("DOMContentLoaded", event => {
                   <td style="text-align:right">${price}</td>  
                   <td><img src="http://localhost:3000/images/${json[i].product_image}/" alt="henter billede"></td>
                </tr>`;
-         }
+                  }
 
-         list += `</table><hr>`;
+                  list += `</table><hr>`;
 
-         document.querySelector('#productsList').innerHTML = list;
+                  document.querySelector('#productsList').innerHTML = list;
 
-         // lokaliser alle slet knapper, og tilføj en slet funktion
-         let deleteButtons = document.querySelectorAll('#productsList a.delete');
-         deleteButtons.forEach((button) => {
-            button.addEventListener('click', sletItem);
-         })
-      })
-      .catch((err) => {
-         console.log(err);
-      })
+                  // lokaliser alle slet knapper, og tilføj en slet funktion
+                  let deleteButtons = document.querySelectorAll('#productsList a.delete');
+                  deleteButtons.forEach((button) => {
+                        button.addEventListener('click', sletItem);
+                  })
+            })
+            .catch((err) => {
+                  console.log(err);
+            })
 });

@@ -1,95 +1,122 @@
-*{
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
 }
+
 body {
-	background-color: #FFFFFF;
-	color: #000;
-	font-family: Verdana;
-	font-size: 13px;
+    background-color: #FFFFFF;
+    color: #000;
+    font-family: Verdana;
+    font-size: 13px;
 }
 
-.navbar-form{
-	padding: 5px 0px;
-	margin-left: 28%;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	background-color: rgb(253, 253, 253);
+.container-fluid {
+    background: linear-gradient(darkred 20%, black 80%);
 }
 
-h1     {  color: #000000;  }
-h2     {  color: #000000; text-align: center;  }
-
-#menu-links{
-	text-align: center;
+.navbar-form {
+    padding: 5px 0px;
+    margin-left: 28%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: linear-gradient(darkred 20%, black 80%);
+    /* background-color: rgb(253, 253, 253); */
 }
 
-#output{
-	text-align: center;
+h1 {
+    color: #000000;
 }
-  
-a                         {  color: #0032F8;  text-decoration: none; }
-a:hover, a.active:hover   {  color: #0099FF; }
-a.active                  {  color: #FF7300;  }
-  
-strong {  color: #000000;  }
-em     {  color: #000000;  }
+
+h2 {
+    color: #000000;
+    text-align: center;
+}
+
+#menu-links {
+    text-align: center;
+}
+
+#output {
+    text-align: center;
+}
+
+a {
+    color: #0032F8;
+    text-decoration: none;
+}
+
+a:hover,
+a.active:hover {
+    color: #0099FF;
+}
+
+a.active {
+    color: #FF7300;
+}
+
+strong {
+    color: #000000;
+}
+
+em {
+    color: #000000;
+}
 
 hr {
-	margin-top: 40px;
-	border: 0px;
-	border-top: 1px solid #9B9B9B;
+    margin-top: 40px;
+    border: 0px;
+    border-top: 1px solid #9B9B9B;
 }
 
-#content{
-	text-align: center;
+#content {
+    text-align: center;
 }
 
-article{
-	text-align: center;
+article {
+    text-align: center;
 }
 
-.adr{
-	float: right;
+.adr {
+    float: right;
 }
 
-
-footer{
-  text-align: center;
+footer {
+    text-align: center;
 }
+
 
 /* Her starter kontakt siden */
 
 .kontaktinfo {
-    width:100%;
-    height:auto;
-    margin-top:10px;
-	margin-left:40px;
-    text-align:center;
-    background:#364C5C;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 40px;
+    text-align: center;
+    background: #364C5C;
 }
 
 .find {
-    width:39%;
-    height:auto;
-	color:#000000;
-    float:left;
-    margin-top:20px;
-    margin-left:50px;
-    padding:10px;   
+    width: 39%;
+    height: auto;
+    color: #000000;
+    float: left;
+    margin-top: 20px;
+    margin-left: 50px;
+    padding: 10px;
 }
 
 form {
-	color: #ffffff;
-	width: 30%;
-	margin: 0 auto;
-	margin-right:50px;
+    color: #ffffff;
+    width: 30%;
+    margin: 0 auto;
+    margin-right: 50px;
     margin-bottom: 2px;
-	margin-top:10px;
-	padding: 2%;
-	float:right;
-	background-color: #425d70;
+    margin-top: 10px;
+    padding: 2%;
+    float: right;
+    background-color: #425d70;
 }
 
 .formGroup {
@@ -108,14 +135,14 @@ form {
 }
 
 .userResponse {
-	position: absolute;
-	font-size: 150%;
-	color: red;
-	top: .1em;
+    position: absolute;
+    font-size: 150%;
+    color: red;
+    top: .1em;
     right: .2em;
-	box-sizing: border-box;
-	visibility: hidden;
-	transition: all .2s linear;
+    box-sizing: border-box;
+    visibility: hidden;
+    transition: all .2s linear;
     cursor: help;
 }
 
@@ -124,12 +151,12 @@ form {
 }
 
 .formGroup__input {
-	width: 100%;
-	background-color: #425d70;
+    width: 100%;
+    background-color: #425d70;
     border: 1px solid lightgrey;
-	margin: 0;
-	box-sizing: border-box;
-	padding: .5em 1em;
+    margin: 0;
+    box-sizing: border-box;
+    padding: .5em 1em;
     transition: all .2s linear;
 }
 
@@ -138,13 +165,13 @@ form {
 }
 
 form textarea {
-	resize: none;
-	height: 100px;
+    resize: none;
+    height: 100px;
 }
 
 .btn {
-	font-weight: 600;
-	border: none;
+    font-weight: 600;
+    border: none;
     margin: 0;
     box-sizing: border-box;
     padding: .5em 1em;
@@ -152,11 +179,11 @@ form textarea {
 
 .btn--success {
     background-color: #425d70;
-	color: white;
+    color: white;
 }
 
 .btn--disabled {
-    background-color: hsla(0,0%,50%,1.00);
+    background-color: hsla(0, 0%, 50%, 1.00);
     color: #ffffff;
 }
 
@@ -170,7 +197,7 @@ form textarea {
 }
 
 .formResponse--error {
-    background-color: hsla(0,81%,58%,1.00);
+    background-color: hsla(0, 81%, 58%, 1.00);
     color: white;
 }
 
