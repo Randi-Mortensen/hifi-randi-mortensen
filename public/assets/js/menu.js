@@ -32,7 +32,7 @@ function udskrivMenu() {
     // Dette sker ikke automatisk bare fordi man giver attributten til linket.
     // Du kan se længere nede i koden, hvordan den bliver brugt.
     kategorier_data.forEach(function (element) {
-        html += `<li><a data-id="${element.type_id}" href="produkt.html?typeID=${element.type_id}">${element.type_navn}</a></li>`;
+        html += `<li><a data-id="${element.type_id}" href="products.html?typeID=${element.type_id}">${element.type_navn}</a></li>`;
         // console.log (`ID: ${element.kategori_id},  Navn: ${element.kategori_navn}`);
     });
 
@@ -86,5 +86,4 @@ function udskrivMenu() {
 }
 
 
-    // ========================================================
-
+// ========================================================
