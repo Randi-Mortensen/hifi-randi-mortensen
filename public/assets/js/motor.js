@@ -6,15 +6,15 @@
             const template = document.querySelector('template');
             const userElem = template.content.querySelector('.userInfo');
             console.log(localStorage.getItem('token'));
-            fetch('http://localhost:1337/users', {
-                'method': 'GET',
-                'headers': {
-                    'Authorization': localStorage.getItem('token'),
-                    'userID': localStorage.getItem('userid')
-                },
-                'mode': 'cors',
-                'cache': 'default'
-            })
+            fetch('http://localhost:3000/getdata', {
+                    'method': 'GET',
+                    'headers': {
+                        'Authorization': localStorage.getItem('token'),
+                        'userID': localStorage.getItem('userid')
+                    },
+                    'mode': 'cors',
+                    'cache': 'default'
+                })
                 .then((result) => result.json())
                 .then((users) => {
                     users.forEach(function (user) {
