@@ -6,7 +6,7 @@
             const template = document.querySelector('template');
             const userElem = template.content.querySelector('.userInfo');
             console.log(localStorage.getItem('token'));
-            fetch('http://localhost:3000/getdata', {
+            fetch('http://localhost:1337/getdata', {
                     'method': 'GET',
                     'headers': {
                         'Authorization': localStorage.getItem('token'),
