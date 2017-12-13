@@ -6,7 +6,7 @@
     // Tilføjer en EventListener, der lytter på om browseren er færdig med at indlæse HTML'en
     document.addEventListener('DOMContentLoaded', function () {
 
-        // Denne funktion er defineret i filen "js/produkter.js"
+        // Denne funktion er defineret i filen "js/products.js"
         udskrivProdukter();
     });
 })();
