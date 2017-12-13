@@ -40,9 +40,9 @@ function udskrivProdukter() {
 
         // Da dette eksempel ikke specifikt handler om API'er,
         // vil jeg bare nøjes med at vise, hvordan man bruger kategoriID i fetch'ens adresse
-        var fetchUrl = 'http://localhost:1337/products/'; //Hvis ikke typeID vises i url'en vises siden fra dette link 
+        var fetchUrl = 'http://localhost:3000/products/'; //Hvis ikke typeID vises i url'en vises siden fra dette link 
         if (typeID > 0) {
-            fetchUrl = `http://localhost:1337/products/type/${typeID}`; //Vises typeID i url'en vises siden for det valgte typeID
+            fetchUrl = `http://localhost:3000/products/type/${typeID}`; //Vises typeID i url'en vises siden for det valgte typeID
         }
         //var 
         // fetch (fetchUrl).then().then() ...
@@ -55,7 +55,7 @@ function udskrivProdukter() {
         output.innerHTML = `Det valgte kategori ID er ${typeID}`;
     } else {
         console.log("typeID blev ikke fundet i URL'en");
-        fetchUrl = 'http://localhost:1337/products/';
+        fetchUrl = 'http://localhost:3000/products/';
     }
 
 

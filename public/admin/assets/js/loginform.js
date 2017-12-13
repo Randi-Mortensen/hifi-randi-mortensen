@@ -8,17 +8,17 @@
                 'password': form.password.value
             });
 
-            fetch('http://localhost:1337/login', {
-                'method': 'POST',
-                'headers': {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Content-Length': data.length
-                },
-                'mode': 'cors',
-                'cache': 'default',
-                'body': data
-            })
+            fetch('http://localhost:3000/login', {
+                    'method': 'POST',
+                    'headers': {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Content-Length': data.length
+                    },
+                    'mode': 'cors',
+                    'cache': 'default',
+                    'body': data
+                })
                 .then((result) => result.json())
                 .then((data) => {
                     localStorage.setItem('token', data.AccessToken);

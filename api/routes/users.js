@@ -1,4 +1,4 @@
-const db = require('../config/sql').connect();
+const db = require('../config/mysql').connect();
 const security = require('../services/security');
 
 module.exports = (app) => {
