@@ -1,85 +1,133 @@
 body {
-   font: 14px verdana, arial, sans-serif;
+    font: 14px verdana, arial, sans-serif;
 }
 
 input[type=text] {
-   vertical-align: top;
-   width: 200px;
-   display: inline-block;
+    vertical-align: top;
+    width: 200px;
+    display: inline-block;
 }
 
 label {
-   vertical-align: top;
-   width: 150px;
-   display: inline-block;
+    vertical-align: top;
+    width: 150px;
+    display: inline-block;
 }
 
 button,
 a.button {
-   margin: 2px;
-   padding: 2px 5px;
-   border: solid 1px #444444;
-   background: #dddddd;
-   color: #333333;
-   font: 12px verdana, arial, sans-serif;
-   text-decoration: none;
-   border-radius: 5px;
+    margin: 2px;
+    padding: 2px 5px;
+    border: solid 1px #444444;
+    background: #dddddd;
+    color: #333333;
+    font: 12px verdana, arial, sans-serif;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 th,
 td {
-   line-height: 22px;
+    line-height: 22px;
 }
 
 img.loading {
-   width: 220px;
+    width: 220px;
 }
 
 img {
-   border: solid 1px #999999;
+    border: solid 1px #999999;
 }
 
 .error {
-   color: #dd0000;
-   font-weight: bold;
+    color: #dd0000;
+    font-weight: bold;
 }
 
 table td img {
-   width: 75px;
-   border-radius: 5px;
+    width: 75px;
+    border-radius: 5px;
 }
 
 #productForm img {
-   width: 200px;
-   margin: 2px 1px;
+    width: 200px;
+    margin: 2px 1px;
 }
 
 button.delete,
 a.delete {
-   background: #c0392b;
-   color: #ffffff;
+    background: #c0392b;
+    color: #ffffff;
 }
 
 button.edit,
 a.edit {
-   background: #2980b9;
-   color: #ffffff;
+    background: #2980b9;
+    color: #ffffff;
 }
 
 button.save,
 a.save {
-   background: #2ecc71;
-   color: #ffffff;
+    background: #2ecc71;
+    color: #ffffff;
 }
 
 button.cancel,
 a.cancel {
-   background: #2c3e50;
-   color: #ffffff;
+    background: #2c3e50;
+    color: #ffffff;
 }
 
 div.form-field {
-   vertical-align: top;
-   padding: 2px;
-   margin: 5px;
+    vertical-align: top;
+    padding: 2px;
+    margin: 5px;
+}
+
+
+/*~~~~ Start Loginform  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.con1 img {
+    height: auto;
+    /* Højden må ikke afvige fra billedets dimensioner - vis altid det samme format */
+    margin-top: 2.5%;
+    /* Positioner billedet i toppen */
+    left: 0;
+    /* Positioner også billedet 10% fra venstre*/
+    right: 0;
+    /* Positioner også billedet 10% fra højre*/
+    padding: 0 10%;
+    min-height: 90%;
+    /* Minimumshøjden er billedets 'naturlige' højde */
+    min-width: 960px;
+    /* Minimumsbredde, så billedet ikke tvinges lavere */
+    position: fixed;
+    /* Billedet forbliver stationært */
+    width: 100%;
+    /* Bredden skal fylde hele browseren - med mindre denne er mindre end 1024 pixels, som defineret ovenfor  */
+    z-index: -1;
+    /* Billedet skal være bagved andet indhold. Denne skal ændres hvis der er andre elementer med lavere z-akse indhold. */
+}
+
+#loginform {
+    width: 40%;
+    margin: 50px auto 50px auto;
+    padding: 3%;
+    /* border: thin solid red; */
+    background: #eeeeee;
+}
+
+#loginform .inputElements {
+    display: block;
+    text-align: center;
+    margin: 4px auto;
+}
+
+.msg {
+    text-align: center;
+    color: red
+}
+
+h4 {
+    text-align: center;
 }

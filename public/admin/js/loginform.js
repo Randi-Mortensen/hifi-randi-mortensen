@@ -24,6 +24,7 @@
                     localStorage.setItem('token', data.AccessToken);
                     localStorage.setItem('userid', data.ID);
                     document.getElementById('status').innerHTML = "Du er nu logget ind ...";
+                    window.location.href = "http://localhost:3000/";
                 })
                 .catch((err) => {
                     console.log(err);
