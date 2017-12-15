@@ -8,23 +8,22 @@
                 'password': form.password.value
             });
 
-            fetch('http://localhost:3000/login', {
-                    'method': 'POST',
-                    'headers': {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                        'Content-Length': data.length
-                    },
-                    'mode': 'cors',
-                    'cache': 'default',
-                    'body': data
-                })
+            fetch('http://localhost:1337/login', {
+                'method': 'POST',
+                'headers': {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Content-Length': data.length
+                },
+                'mode': 'cors',
+                'cache': 'default',
+                'body': data
+            })
                 .then((result) => result.json())
                 .then((data) => {
                     localStorage.setItem('token', data.AccessToken);
                     localStorage.setItem('userid', data.ID);
-                    document.getElementById('status').innerHTML = "Så er du logget ind ...";
-                    window.location.href = "http://localhost:3000/";
+                    document.getElementById('status').innerHTML = "Du er logget ind"; // kan også hentes fra localStorage
                 })
                 .catch((err) => {
                     console.log(err);
@@ -36,7 +35,7 @@
 })();
 
 document.getElementById('logud').addEventListener('click', () => {
-    if (confirm('Vil du logge af?')) {
+    if (confirm('vil du logge af?')) {
         localStorage.clear();
     }
 })
