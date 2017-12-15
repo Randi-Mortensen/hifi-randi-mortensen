@@ -38,6 +38,8 @@ function sletItem(event) {
       }
 }
 
+//Opdater produkter
+
 function opdaterProdukt(event) {
       event.preventDefault();
       let name = document.querySelector('#productName').value;
@@ -80,6 +82,8 @@ function opdaterProdukt(event) {
             document.querySelector('#productsFormError').innerHTML = "Udfyld venligst alle felter korrekt";
       }
 }
+
+//opret produkter
 
 function opretProdukt(event) {
       event.preventDefault();

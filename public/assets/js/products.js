@@ -42,7 +42,7 @@ function udskrivProdukter() {
         // vil jeg bare nøjes med at vise, hvordan man bruger kategoriID i fetch'ens adresse
         var fetchUrl = 'http://localhost:3000/products/'; //Hvis ikke typeID vises i url'en vises siden fra dette link 
         if (typeID > 0) {
-            fetchUrl = `http://localhost:3000/products/type/${typeID}`; //Vises typeID i url'en vises siden for det valgte typeID
+            fetchUrl = `http://localhost:3000/products/${typeID}`; //Vises typeID i url'en vises siden for det valgte typeID
         }
         //var 
         // fetch (fetchUrl).then().then() ...
@@ -70,16 +70,18 @@ function udskrivProdukter() {
             // nu er json objektet lagt ind i data variablen, udskriv data
             console.log("her burde komme produkter");
             console.log(data);
-            var content = document.getElementById('content');
-            console.log("content");
-            console.log("udskriv content");
+            // var content = document.getElementById('content');
+            var productsList = document.getElementById('productsList');
+            console.log("productsList");
+            console.log("udskriv productsList");
 
             var type = '';
-            document.getElementById('content').innerHTML = "";
+            // document.getElementById('content').innerHTML = "";
+            document.getElementById('productsList').innerHTML = "";
             data.forEach(function (item) {
-                document.getElementById('content').innerHTML += `<h2>${item.product_type}</h2>`;
+                document.getElementById('productsList').innerHTML += `<h2>${item.product_type}</h2>`;
                 item.prod.forEach(function (prod) {
-                    document.getElementById('content').innerHTML += `
+                    document.getElementById('productsList').innerHTML += `
                         <div><br><br><br><hr>
                         <img src="assets/media/${prod.product_image}" width="150px" /><br><br>
                             <b>Produkt Navn: ${prod.product_name}</b><br>

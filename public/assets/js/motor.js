@@ -1,7 +1,8 @@
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
         if (localStorage.getItem('token') === null) {
-            window.location.assign('login.html');
+            // window.location.assign('login.html');
+            window.location.assign('./../../admin/index.html');
         } else {
             const template = document.querySelector('template');
             const userElem = template.content.querySelector('.userInfo');
