@@ -5,36 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Administrations Login</title>
-    <link rel="icon" href="assets/media/favicon.png">
+    <title>Front med API</title>
 </head>
 
 <body>
-
     <div id="status"></div>
-    <div class="con1">
-        <img src="../images/internet.png" class="bg" />
-        <h1>Log ind</h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Forside</a>
+            </li>
+            <li>
+                <a href="/login.html">Log ind</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>Log ind</h1>
+    <form class="loginForm">
+        <div>
+            <label for="username">Brugernavn</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div>
+            <label for="password">Adgangskode</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <button>Log ind!</button>
+    </form>
+    <button id="logud">log ud</button>
 
-        <form class="loginForm">
-            <div>
-                <label for="username">Brugernavn</label>
-                <input type="text" name="username" id="username">
-            </div>
-            <div>
-                <label for="password">Adgangskode</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <button>Log ind!</button>
-        </form>
-        <button id="logud">log ud</button>
-    </div>
-    <footer>
-        <h4>© HiFi Klubben v. Randi Mortensen 2017</h4>
-    </footer>
-
+    <script src="./assets/js/loginform.js"></script>
 </body>
-
-<script src="./assets/js/loginform.js"></script>
 
 </html>

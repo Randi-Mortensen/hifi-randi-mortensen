@@ -23,7 +23,7 @@
                 .then((data) => {
                     localStorage.setItem('token', data.AccessToken);
                     localStorage.setItem('userid', data.ID);
-                    document.getElementById('status').innerHTML = "Du er nu logget ind"; // kan også hentes fra localStorage
+                    document.getElementById('status').innerHTML = "Du er logget ind"; // kan også hentes fra localStorage
                     window.location.href = "http://localhost:3000/";
                 })
                 .catch((err) => {
